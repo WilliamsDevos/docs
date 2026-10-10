@@ -1,0 +1,23 @@
+{
+  "name": "prompt-to-video",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "soundtrack": "bun scripts/soundtrack.ts",
+    "stills": "bun scripts/render.ts stills",
+    "render": "bun scripts/render.ts video"
+  },
+  "dependencies": {
+    "@fontsource/inter": "5.2.6",
+    "@fontsource/jetbrains-mono": "5.2.6",
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "@types/bun": "1.2.21",
+    "@types/three": "0.180.0",
+    "playwright-core": "1.55.0",
+    "typescript": "5.9.2",
+    "vite": "7.1.5"
+  }
+}
