@@ -47,8 +47,6 @@ export default class Outro extends TypeScene {
       rule(c, 1250, 300, 1250, 660, '#B7B1A6');
       const credits = ['Janji — Heroes Tonight', 'feat. Johnning', '', 'NCS Release', 'Music provided by NoCopyrightSounds', 'Free download / stream:', 'ncs.io/HeroesTonight'];
       credits.forEach((line, i) => note(c, line, 1290, 340 + i * 46, {color: i < 2 ? C.ink : C.graphite, size: 24}));
-      c.globalAlpha = cardIn * prog(t, this.card + 1, this.card + 2);
-      note(c, 'tipografía con código · three.js · Canvas2D · Whisper · ffmpeg', 120, 1000, {color: C.graphite});
       c.globalAlpha = 1;
       ribbon(h, [[120, 650], [1100, 650]], prog(t, this.card + 0.3, this.card + 1.2, ease.inOutCubic), 5, false);
     }

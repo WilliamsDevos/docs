@@ -10,12 +10,10 @@ export default class Title extends TypeScene {
     this.plate(c, C.ink);
     const fadeIn = prog(t, 0, 0.8);
 
-    // Retícula suiza: márgenes y filetes, con metadatos en mono.
+    // Retícula suiza: márgenes y filetes, con compás y tiempo en mono (los créditos van al final).
     c.globalAlpha = fadeIn;
     rule(c, 120, 150, 1800, 150);
     rule(c, 120, 930, 1800, 930);
-    note(c, 'Janji — Heroes Tonight (feat. Johnning)', 120, 130);
-    note(c, 'NCS Release · 128.0 BPM', 1800, 130, {align: 'right'});
     const b = Math.max(0, barAt(t));
     note(c, `bar ${Math.floor(b) + 1}.${Math.floor((b % 1) * 4) + 1}`, 120, 962);
     note(c, `${t.toFixed(3)} s`, 1800, 962, {align: 'right'});
