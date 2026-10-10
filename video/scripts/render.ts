@@ -38,14 +38,17 @@ async function startServer() {
   const given = opt('url');
   if (given && (await reachable(given))) return {url: given, stop: () => {}};
   const port = 5400 + Math.floor(Math.random() * 400);
-  const proc = Bun.spawn(['bunx', 'vite', '--port', String(port), '--strictPort'], {
+  // process.execPath es el propio bun: funciona igual en Windows, Mac y Linux (sin depender de "bunx" en el PATH).
+  const proc = Bun.spawn([process.execPath, 'x', 'vite', '--port', String(port), '--strictPort'], {
     cwd: APP,
     stdout: 'ignore',
     stderr: 'inherit',
     env: {...process.env, VIDEO_NO_HMR: '1'},
   });
   const url = `http://localhost:${port}`;
-  for (let i = 0; i < 150 && !(await reachable(url)); i++) await Bun.sleep(100);
+  // La primera vez Vite optimiza dependencias y puede tardar: hasta 60 s.
+  for (let i = 0; i < 600 && !(await reachable(url)); i++) await Bun.sleep(100);
+  if (!(await reachable(url))) throw new Error(`Vite no arrancó en ${url}`);
   return {url, stop: () => proc.kill()};
 }
 
@@ -143,7 +146,7 @@ async function video(page: Page, duration: number, audioPath: string) {
   mkdirSync(path.dirname(out), {recursive: true});
   const audio = path.join(APP, 'public', audioPath);
   if (audioPath === 'soundtrack.wav' && !existsSync(audio)) {
-    await Bun.spawn(['bun', 'scripts/soundtrack.ts'], {cwd: APP, stdout: 'inherit'}).exited;
+    await Bun.spawn([process.execPath, 'scripts/soundtrack.ts'], {cwd: APP, stdout: 'inherit'}).exited;
   }
   if (!flag('noaudio') && !existsSync(audio)) throw new Error(`falta el audio: ${audio}`);
 

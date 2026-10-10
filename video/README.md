@@ -115,10 +115,14 @@ Todo el análisis (tempo, golpes, voz, letra alineada) ya está en el repositori
    bun install
    ```
 3. Poner la canción en `video/public/audio/heroes-tonight.mp3` (de [ncs.io/HeroesTonight](https://ncs.io/HeroesTonight)).
-4. Renderizar:
+4. Renderizar (en PowerShell o en la terminal que uses, dentro de `video`):
    ```sh
-   bun scripts/render.ts video --project heroes-tonight --out out/heroes-tonight.mp4
+   bun run render:heroes          # → out/heroes-tonight.mp4
+   bun run render:heroes-blur     # igual, con desenfoque de movimiento (4 sub-fotogramas)
+   bun run render:prompt          # el video "Prompt → Video" (genera su banda sonora si falta)
    ```
+   Para ver antes la vista previa en el navegador: `bunx vite` y abre
+   `http://localhost:5173/?project=heroes-tonight` (espacio para reproducir).
 
 Al arrancar, el script imprime `WebGL: …` con la tarjeta que está usando. Si dice *SwiftShader*,
 *llvmpipe* o *software*, va por CPU: prueba `--angle d3d11` (Windows), `--angle metal` (Mac) o
@@ -126,7 +130,7 @@ Al arrancar, el script imprime `WebGL: …` con la tarjeta que está usando. Si 
 fotograma tarda unos milisegundos en lugar de casi un segundo. El cuello de botella pasa a ser la
 codificación de x264: `--preset medium` lo acelera a costa de un archivo algo mayor.
 
-Opcional: `--samples 4` añade desenfoque de movimiento (promedia 4 sub-fotogramas; tarda 4 veces más).
+Los atajos admiten opciones extra tras `--`, por ejemplo `bun run render:heroes -- --angle d3d11`.
 El grano de película hace que el archivo pese mucho a CRF 18. Para compartirlo, recomprímelo:
 `ffmpeg -i out/heroes-tonight.mp4 -c:v libx264 -crf 26 -tune grain -c:a copy out/heroes-tonight-share.mp4`.
 

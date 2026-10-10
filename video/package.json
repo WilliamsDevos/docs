@@ -6,7 +6,11 @@
     "dev": "vite",
     "soundtrack": "bun scripts/soundtrack.ts",
     "stills": "bun scripts/render.ts stills",
-    "render": "bun scripts/render.ts video"
+    "render": "bun scripts/render.ts video",
+    "render:prompt": "bun scripts/render.ts video --project prompt-to-video --out out/prompt-to-video.mp4",
+    "render:heroes": "bun scripts/render.ts video --project heroes-tonight --out out/heroes-tonight.mp4",
+    "render:heroes-blur": "bun scripts/render.ts video --project heroes-tonight --samples 4 --out out/heroes-tonight-blur.mp4",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
     "@fontsource-variable/archivo": "5.2.6",
