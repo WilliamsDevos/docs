@@ -1,4 +1,4 @@
-import type {Entry} from './engine/engine';
+import type {Entry} from '../../engine/project';
 import {SECTIONS as S} from './music';
 
 // El montaje: cada escena vive en su sección de la partitura.

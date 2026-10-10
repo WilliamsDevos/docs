@@ -50,3 +50,17 @@ export const hash = (n: number) => {
   const s = Math.sin(n * 127.1 + 311.7) * 43758.5453;
   return s - Math.floor(s);
 };
+
+/** Envolvente 0..1 que decae tras el último evento anterior a `t`. */
+export function hit(events: number[], t: number, halfLife = 0.12) {
+  // Búsqueda binaria: los eventos están ordenados.
+  let lo = 0;
+  let hi = events.length;
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1;
+    if (events[mid]! <= t) lo = mid + 1;
+    else hi = mid;
+  }
+  const last = lo > 0 ? events[lo - 1]! : -Infinity;
+  return last === -Infinity ? 0 : Math.pow(0.5, (t - last) / halfLife);
+}

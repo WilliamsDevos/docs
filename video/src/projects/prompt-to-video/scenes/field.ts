@@ -1,8 +1,8 @@
 import type * as THREE from 'three';
-import {FSPass, Layer2D} from '../engine/gl';
-import {Scene, type Frame} from '../engine/scene';
-import {ease, prog, spring} from '../engine/util';
-import {C, MONO, font, revealWords, shakeFrom} from './_kit';
+import {FSPass, Layer2D} from '../../../engine/gl';
+import {Scene, type Frame} from '../../../engine/scene';
+import {ease, prog, spring} from '../../../engine/util';
+import {C, MONO, font, revealWords, shakeFrom} from '../../../kit';
 
 const COLS = 4;
 const ROWS = 3;

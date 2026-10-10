@@ -6,7 +6,7 @@ import path from 'node:path';
 import {mulberry32} from '../src/engine/util';
 import {
   BAR, BEAT, CHORDS, CLAPS, CRASHES, DURATION, KEY_CLICKS, KICKS, SECTIONS,
-} from '../src/music';
+} from '../src/projects/prompt-to-video/music';
 
 const SR = 48000;
 const N = Math.ceil(DURATION * SR);

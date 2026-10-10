@@ -6,7 +6,7 @@
 //   bun scripts/render.ts sheet  [--from 0] [--to 40] [--n 24] [--cols 6] [--out out/sheet.png]
 //   bun scripts/render.ts video  [--from 0] [--to 40] [--fps 30] [--samples 1] [--shutter 0.5] [--crf 18] [--out out/video.mp4]
 //
-// Opciones comunes: --chrome <ruta> (o CHROME_PATH), --swiftshader (WebGL por CPU, para
+// Opciones comunes: --project <id> (por defecto prompt-to-video), --chrome <ruta> (o CHROME_PATH), --swiftshader (WebGL por CPU, para
 // contenedores sin GPU), --url <servidor vite ya arrancado>.
 import {chromium, type Browser, type Page} from 'playwright-core';
 import {existsSync, mkdirSync} from 'node:fs';
@@ -47,7 +47,7 @@ async function startServer() {
   return {url, stop: () => proc.kill()};
 }
 
-async function openPage(url: string): Promise<{browser: Browser; page: Page; duration: number}> {
+async function openPage(url: string): Promise<{browser: Browser; page: Page; duration: number; audio: string}> {
   const executablePath = opt('chrome') ?? process.env.CHROME_PATH;
   const args = ['--disable-background-timer-throttling', '--disable-renderer-backgrounding', '--ignore-gpu-blocklist'];
   if (flag('swiftshader')) args.push('--use-angle=swiftshader', '--enable-unsafe-swiftshader');
@@ -58,12 +58,13 @@ async function openPage(url: string): Promise<{browser: Browser; page: Page; dur
   });
   page.on('pageerror', (e) => console.error(`[navegador] ${e.message}`));
   const only = opt('only');
-  await page.goto(`${url}/?export=1&fps=${FPS}${only ? `&only=${only}` : ''}`);
+  const project = opt('project');
+  await page.goto(`${url}/?export=1&fps=${FPS}${only ? `&only=${only}` : ''}${project ? `&project=${project}` : ''}`);
   await page.waitForFunction(() => (window as any).__video?.ready || (window as any).__video?.error, null, {timeout: 120000});
   const err = await page.evaluate(() => (window as any).__video.error);
   if (err) throw new Error(`la app no arrancó:\n${err}`);
-  const duration: number = await page.evaluate(() => (window as any).__video.duration);
-  return {browser, page, duration};
+  const [duration, audio]: [number, string] = await page.evaluate(() => [(window as any).__video.duration, (window as any).__video.audio]);
+  return {browser, page, duration, audio};
 }
 
 const frame = (page: Page, t: number) =>
@@ -123,13 +124,16 @@ async function sheet(page: Page, duration: number) {
   console.log(path.relative(process.cwd(), out));
 }
 
-async function video(page: Page, duration: number) {
+async function video(page: Page, duration: number, audioPath: string) {
   const from = Number(opt('from', '0'));
   const to = Number(opt('to', String(duration)));
   const out = path.resolve(opt('out', 'out/video.mp4')!);
   mkdirSync(path.dirname(out), {recursive: true});
-  const audio = path.join(APP, 'public/soundtrack.wav');
-  if (!existsSync(audio)) await Bun.spawn(['bun', 'scripts/soundtrack.ts'], {cwd: APP, stdout: 'inherit'}).exited;
+  const audio = path.join(APP, 'public', audioPath);
+  if (audioPath === 'soundtrack.wav' && !existsSync(audio)) {
+    await Bun.spawn(['bun', 'scripts/soundtrack.ts'], {cwd: APP, stdout: 'inherit'}).exited;
+  }
+  if (!flag('noaudio') && !existsSync(audio)) throw new Error(`falta el audio: ${audio}`);
 
   const withAudio = !flag('noaudio');
   const ff = Bun.spawn(
@@ -170,7 +174,7 @@ try {
   browser = opened.browser;
   if (mode === 'stills') await stills(opened.page);
   else if (mode === 'sheet') await sheet(opened.page, opened.duration);
-  else if (mode === 'video') await video(opened.page, opened.duration);
+  else if (mode === 'video') await video(opened.page, opened.duration, opened.audio);
   else throw new Error(`modo desconocido: ${mode}`);
 } finally {
   await browser?.close();

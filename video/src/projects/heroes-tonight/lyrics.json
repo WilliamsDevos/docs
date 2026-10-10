@@ -1,0 +1,1572 @@
+[
+ {
+  "text": "I'm walking alone, the streets are empty",
+  "estimated": false,
+  "start": 7.58,
+  "end": 11.66,
+  "words": [
+   {
+    "w": "I'm",
+    "start": 7.58,
+    "end": 8.5,
+    "matched": true
+   },
+   {
+    "w": "walking",
+    "start": 8.5,
+    "end": 8.98,
+    "matched": true
+   },
+   {
+    "w": "alone,",
+    "start": 8.98,
+    "end": 9.74,
+    "matched": true
+   },
+   {
+    "w": "the",
+    "start": 10.32,
+    "end": 10.32,
+    "matched": true
+   },
+   {
+    "w": "streets",
+    "start": 10.32,
+    "end": 10.72,
+    "matched": true
+   },
+   {
+    "w": "are",
+    "start": 10.72,
+    "end": 11.04,
+    "matched": true
+   },
+   {
+    "w": "empty",
+    "start": 11.04,
+    "end": 11.66,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "The only thing I can see is my own silhouette",
+  "estimated": false,
+  "start": 11.66,
+  "end": 15.08,
+  "words": [
+   {
+    "w": "The",
+    "start": 11.66,
+    "end": 12.18,
+    "matched": true
+   },
+   {
+    "w": "only",
+    "start": 12.18,
+    "end": 12.62,
+    "matched": true
+   },
+   {
+    "w": "thing",
+    "start": 12.62,
+    "end": 12.9,
+    "matched": true
+   },
+   {
+    "w": "I",
+    "start": 12.9,
+    "end": 13.24,
+    "matched": true
+   },
+   {
+    "w": "can",
+    "start": 13.24,
+    "end": 13.52,
+    "matched": true
+   },
+   {
+    "w": "see",
+    "start": 13.52,
+    "end": 13.78,
+    "matched": true
+   },
+   {
+    "w": "is",
+    "start": 13.78,
+    "end": 13.88,
+    "matched": true
+   },
+   {
+    "w": "my",
+    "start": 13.88,
+    "end": 14.06,
+    "matched": true
+   },
+   {
+    "w": "own",
+    "start": 14.06,
+    "end": 14.44,
+    "matched": true
+   },
+   {
+    "w": "silhouette",
+    "start": 14.44,
+    "end": 15.08,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "I'm getting stronger, step by step",
+  "estimated": false,
+  "start": 15.08,
+  "end": 19.16,
+  "words": [
+   {
+    "w": "I'm",
+    "start": 15.08,
+    "end": 15.96,
+    "matched": true
+   },
+   {
+    "w": "getting",
+    "start": 15.96,
+    "end": 16.5,
+    "matched": true
+   },
+   {
+    "w": "stronger,",
+    "start": 16.5,
+    "end": 17.22,
+    "matched": true
+   },
+   {
+    "w": "step",
+    "start": 17.22,
+    "end": 18.14,
+    "matched": true
+   },
+   {
+    "w": "by",
+    "start": 18.14,
+    "end": 18.58,
+    "matched": true
+   },
+   {
+    "w": "step",
+    "start": 18.58,
+    "end": 19.16,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "The clock is ticking but there's no time for regrets",
+  "estimated": false,
+  "start": 19.16,
+  "end": 22.76,
+  "words": [
+   {
+    "w": "The",
+    "start": 19.16,
+    "end": 19.66,
+    "matched": true
+   },
+   {
+    "w": "clock",
+    "start": 19.66,
+    "end": 20.14,
+    "matched": true
+   },
+   {
+    "w": "is",
+    "start": 20.14,
+    "end": 20.4,
+    "matched": true
+   },
+   {
+    "w": "ticking",
+    "start": 20.4,
+    "end": 20.96,
+    "matched": true
+   },
+   {
+    "w": "but",
+    "start": 20.96,
+    "end": 21.34,
+    "matched": true
+   },
+   {
+    "w": "there's",
+    "start": 21.34,
+    "end": 21.58,
+    "matched": true
+   },
+   {
+    "w": "no",
+    "start": 21.58,
+    "end": 21.76,
+    "matched": true
+   },
+   {
+    "w": "time",
+    "start": 21.76,
+    "end": 22.04,
+    "matched": true
+   },
+   {
+    "w": "for",
+    "start": 22.04,
+    "end": 22.3,
+    "matched": true
+   },
+   {
+    "w": "regrets",
+    "start": 22.3,
+    "end": 22.76,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "I've been flying from town to town",
+  "estimated": false,
+  "start": 22.76,
+  "end": 26.46,
+  "words": [
+   {
+    "w": "I've",
+    "start": 22.76,
+    "end": 24.02,
+    "matched": true
+   },
+   {
+    "w": "been",
+    "start": 24.02,
+    "end": 24.24,
+    "matched": true
+   },
+   {
+    "w": "flying",
+    "start": 24.24,
+    "end": 24.84,
+    "matched": true
+   },
+   {
+    "w": "from",
+    "start": 24.84,
+    "end": 25.26,
+    "matched": true
+   },
+   {
+    "w": "town",
+    "start": 25.26,
+    "end": 25.68,
+    "matched": true
+   },
+   {
+    "w": "to",
+    "start": 25.68,
+    "end": 26.0,
+    "matched": true
+   },
+   {
+    "w": "town",
+    "start": 26.0,
+    "end": 26.46,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "From London to Taiwan",
+  "estimated": false,
+  "start": 26.46,
+  "end": 29.8,
+  "words": [
+   {
+    "w": "From",
+    "start": 26.46,
+    "end": 27.6,
+    "matched": true
+   },
+   {
+    "w": "London",
+    "start": 27.6,
+    "end": 28.64,
+    "matched": true
+   },
+   {
+    "w": "to",
+    "start": 28.64,
+    "end": 29.2,
+    "matched": true
+   },
+   {
+    "w": "Taiwan",
+    "start": 29.2,
+    "end": 29.8,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "I've been all around the globe",
+  "estimated": false,
+  "start": 29.8,
+  "end": 34.08,
+  "words": [
+   {
+    "w": "I've",
+    "start": 29.8,
+    "end": 31.26,
+    "matched": true
+   },
+   {
+    "w": "been",
+    "start": 31.26,
+    "end": 31.62,
+    "matched": true
+   },
+   {
+    "w": "all",
+    "start": 31.62,
+    "end": 32.3,
+    "matched": true
+   },
+   {
+    "w": "around",
+    "start": 32.3,
+    "end": 33.06,
+    "matched": true
+   },
+   {
+    "w": "the",
+    "start": 33.06,
+    "end": 33.46,
+    "matched": true
+   },
+   {
+    "w": "globe",
+    "start": 33.46,
+    "end": 34.08,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "Trying to protect your soul",
+  "estimated": false,
+  "start": 34.08,
+  "end": 37.46,
+  "words": [
+   {
+    "w": "Trying",
+    "start": 34.08,
+    "end": 34.76,
+    "matched": true
+   },
+   {
+    "w": "to",
+    "start": 34.76,
+    "end": 35.36,
+    "matched": true
+   },
+   {
+    "w": "protect",
+    "start": 35.36,
+    "end": 35.88,
+    "matched": true
+   },
+   {
+    "w": "your",
+    "start": 35.88,
+    "end": 36.64,
+    "matched": true
+   },
+   {
+    "w": "soul",
+    "start": 36.64,
+    "end": 37.46,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "We are heroes tonight",
+  "estimated": false,
+  "start": 37.46,
+  "end": 41.26,
+  "words": [
+   {
+    "w": "We",
+    "start": 37.46,
+    "end": 38.66,
+    "matched": true
+   },
+   {
+    "w": "are",
+    "start": 38.66,
+    "end": 39.24,
+    "matched": true
+   },
+   {
+    "w": "heroes",
+    "start": 39.24,
+    "end": 40.62,
+    "matched": true
+   },
+   {
+    "w": "tonight",
+    "start": 40.62,
+    "end": 41.26,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "We will fly above the sky",
+  "estimated": false,
+  "start": 41.26,
+  "end": 45.22,
+  "words": [
+   {
+    "w": "We",
+    "start": 41.26,
+    "end": 42.42,
+    "matched": true
+   },
+   {
+    "w": "will",
+    "start": 42.42,
+    "end": 42.8,
+    "matched": true
+   },
+   {
+    "w": "fly",
+    "start": 42.8,
+    "end": 43.34,
+    "matched": true
+   },
+   {
+    "w": "above",
+    "start": 43.34,
+    "end": 44.0,
+    "matched": true
+   },
+   {
+    "w": "the",
+    "start": 44.0,
+    "end": 44.62,
+    "matched": true
+   },
+   {
+    "w": "sky",
+    "start": 44.62,
+    "end": 45.22,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "We are heroes tonight, yeah",
+  "estimated": false,
+  "start": 45.22,
+  "end": 49.59,
+  "words": [
+   {
+    "w": "We",
+    "start": 45.22,
+    "end": 46.16,
+    "matched": true
+   },
+   {
+    "w": "are",
+    "start": 46.16,
+    "end": 46.74,
+    "matched": true
+   },
+   {
+    "w": "heroes",
+    "start": 46.74,
+    "end": 48.14,
+    "matched": true
+   },
+   {
+    "w": "tonight,",
+    "start": 48.14,
+    "end": 49.34,
+    "matched": true
+   },
+   {
+    "w": "yeah",
+    "start": 49.34,
+    "end": 49.59,
+    "matched": false
+   }
+  ]
+ },
+ {
+  "text": "We are heroes tonight",
+  "estimated": false,
+  "start": 51.42,
+  "end": 56.3,
+  "words": [
+   {
+    "w": "We",
+    "start": 51.42,
+    "end": 52.78,
+    "matched": true
+   },
+   {
+    "w": "are",
+    "start": 52.78,
+    "end": 54.14,
+    "matched": true
+   },
+   {
+    "w": "heroes",
+    "start": 54.14,
+    "end": 55.42,
+    "matched": true
+   },
+   {
+    "w": "tonight",
+    "start": 55.42,
+    "end": 56.3,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "We will fly above the sky",
+  "estimated": false,
+  "start": 56.3,
+  "end": 60.22,
+  "words": [
+   {
+    "w": "We",
+    "start": 56.3,
+    "end": 57.4,
+    "matched": true
+   },
+   {
+    "w": "will",
+    "start": 57.4,
+    "end": 57.78,
+    "matched": true
+   },
+   {
+    "w": "fly",
+    "start": 57.78,
+    "end": 58.36,
+    "matched": true
+   },
+   {
+    "w": "above",
+    "start": 58.36,
+    "end": 58.98,
+    "matched": true
+   },
+   {
+    "w": "the",
+    "start": 58.98,
+    "end": 59.62,
+    "matched": true
+   },
+   {
+    "w": "sky",
+    "start": 59.62,
+    "end": 60.22,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "We are heroes tonight, yeah",
+  "estimated": false,
+  "start": 60.22,
+  "end": 67.38,
+  "words": [
+   {
+    "w": "We",
+    "start": 60.22,
+    "end": 61.18,
+    "matched": true
+   },
+   {
+    "w": "are",
+    "start": 61.18,
+    "end": 61.58,
+    "matched": true
+   },
+   {
+    "w": "heroes",
+    "start": 61.58,
+    "end": 62.9,
+    "matched": true
+   },
+   {
+    "w": "tonight,",
+    "start": 62.9,
+    "end": 64.36,
+    "matched": true
+   },
+   {
+    "w": "yeah",
+    "start": 67.1,
+    "end": 67.38,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "Night, yeah",
+  "estimated": false,
+  "start": 79.82,
+  "end": 82.38,
+  "words": [
+   {
+    "w": "Night,",
+    "start": 79.82,
+    "end": 81.1,
+    "matched": true
+   },
+   {
+    "w": "yeah",
+    "start": 81.1,
+    "end": 82.38,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "I'm feeling like a dynamite",
+  "estimated": false,
+  "start": 82.08,
+  "end": 86.7,
+  "words": [
+   {
+    "w": "I'm",
+    "start": 82.08,
+    "end": 82.33,
+    "matched": false
+   },
+   {
+    "w": "feeling",
+    "start": 82.38,
+    "end": 83.74,
+    "matched": true
+   },
+   {
+    "w": "like",
+    "start": 83.74,
+    "end": 84.2,
+    "matched": true
+   },
+   {
+    "w": "a",
+    "start": 84.2,
+    "end": 84.44,
+    "matched": true
+   },
+   {
+    "w": "dynamite",
+    "start": 84.44,
+    "end": 86.7,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "Ready to explode right up in the sky",
+  "estimated": false,
+  "start": 86.7,
+  "end": 90.14,
+  "words": [
+   {
+    "w": "Ready",
+    "start": 86.7,
+    "end": 87.5,
+    "matched": true
+   },
+   {
+    "w": "to",
+    "start": 87.5,
+    "end": 87.88,
+    "matched": true
+   },
+   {
+    "w": "explode",
+    "start": 87.88,
+    "end": 88.4,
+    "matched": true
+   },
+   {
+    "w": "right",
+    "start": 88.4,
+    "end": 89.0,
+    "matched": true
+   },
+   {
+    "w": "up",
+    "start": 89.0,
+    "end": 89.36,
+    "matched": true
+   },
+   {
+    "w": "in",
+    "start": 89.36,
+    "end": 89.56,
+    "matched": true
+   },
+   {
+    "w": "the",
+    "start": 89.56,
+    "end": 89.74,
+    "matched": true
+   },
+   {
+    "w": "sky",
+    "start": 89.74,
+    "end": 90.14,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "I need you to listen, I need you to hear",
+  "estimated": false,
+  "start": 90.14,
+  "end": 94.18,
+  "words": [
+   {
+    "w": "I",
+    "start": 90.14,
+    "end": 90.86,
+    "matched": true
+   },
+   {
+    "w": "need",
+    "start": 90.86,
+    "end": 91.36,
+    "matched": true
+   },
+   {
+    "w": "you",
+    "start": 91.36,
+    "end": 91.54,
+    "matched": true
+   },
+   {
+    "w": "to",
+    "start": 91.54,
+    "end": 91.82,
+    "matched": true
+   },
+   {
+    "w": "listen,",
+    "start": 91.82,
+    "end": 92.34,
+    "matched": true
+   },
+   {
+    "w": "I",
+    "start": 92.7,
+    "end": 92.78,
+    "matched": true
+   },
+   {
+    "w": "need",
+    "start": 92.78,
+    "end": 93.18,
+    "matched": true
+   },
+   {
+    "w": "you",
+    "start": 93.18,
+    "end": 93.4,
+    "matched": true
+   },
+   {
+    "w": "to",
+    "start": 93.4,
+    "end": 93.7,
+    "matched": true
+   },
+   {
+    "w": "hear",
+    "start": 93.7,
+    "end": 94.18,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "And don't show any fear",
+  "estimated": false,
+  "start": 94.18,
+  "end": 96.35,
+  "words": [
+   {
+    "w": "And",
+    "start": 94.18,
+    "end": 95.22,
+    "matched": true
+   },
+   {
+    "w": "don't",
+    "start": 95.22,
+    "end": 95.48,
+    "matched": true
+   },
+   {
+    "w": "show",
+    "start": 95.48,
+    "end": 95.8,
+    "matched": true
+   },
+   {
+    "w": "any",
+    "start": 95.8,
+    "end": 96.05,
+    "matched": false
+   },
+   {
+    "w": "fear",
+    "start": 96.1,
+    "end": 96.35,
+    "matched": false
+   }
+  ]
+ },
+ {
+  "text": "I've been flying from town to town",
+  "estimated": false,
+  "start": 97.32,
+  "end": 101.46,
+  "words": [
+   {
+    "w": "I've",
+    "start": 97.32,
+    "end": 99.04,
+    "matched": true
+   },
+   {
+    "w": "been",
+    "start": 99.04,
+    "end": 99.2,
+    "matched": true
+   },
+   {
+    "w": "flying",
+    "start": 99.2,
+    "end": 99.82,
+    "matched": true
+   },
+   {
+    "w": "from",
+    "start": 99.82,
+    "end": 100.26,
+    "matched": true
+   },
+   {
+    "w": "town",
+    "start": 100.26,
+    "end": 100.68,
+    "matched": true
+   },
+   {
+    "w": "to",
+    "start": 100.68,
+    "end": 101.0,
+    "matched": true
+   },
+   {
+    "w": "town",
+    "start": 101.0,
+    "end": 101.46,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "From London to Taiwan",
+  "estimated": false,
+  "start": 101.46,
+  "end": 104.53,
+  "words": [
+   {
+    "w": "From",
+    "start": 101.46,
+    "end": 102.88,
+    "matched": true
+   },
+   {
+    "w": "London",
+    "start": 102.88,
+    "end": 103.62,
+    "matched": true
+   },
+   {
+    "w": "to",
+    "start": 103.62,
+    "end": 104.28,
+    "matched": true
+   },
+   {
+    "w": "Taiwan",
+    "start": 104.28,
+    "end": 104.53,
+    "matched": false
+   }
+  ]
+ },
+ {
+  "text": "I've been all around the globe",
+  "estimated": false,
+  "start": 104.94,
+  "end": 109.06,
+  "words": [
+   {
+    "w": "I've",
+    "start": 104.94,
+    "end": 106.28,
+    "matched": true
+   },
+   {
+    "w": "been",
+    "start": 106.28,
+    "end": 106.62,
+    "matched": true
+   },
+   {
+    "w": "all",
+    "start": 106.62,
+    "end": 107.32,
+    "matched": true
+   },
+   {
+    "w": "around",
+    "start": 107.32,
+    "end": 108.08,
+    "matched": true
+   },
+   {
+    "w": "the",
+    "start": 108.08,
+    "end": 108.5,
+    "matched": true
+   },
+   {
+    "w": "globe",
+    "start": 108.5,
+    "end": 109.06,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "Trying to protect your soul",
+  "estimated": false,
+  "start": 109.06,
+  "end": 112.5,
+  "words": [
+   {
+    "w": "Trying",
+    "start": 109.06,
+    "end": 109.76,
+    "matched": true
+   },
+   {
+    "w": "to",
+    "start": 109.76,
+    "end": 110.34,
+    "matched": true
+   },
+   {
+    "w": "protect",
+    "start": 110.34,
+    "end": 110.84,
+    "matched": true
+   },
+   {
+    "w": "your",
+    "start": 110.84,
+    "end": 111.62,
+    "matched": true
+   },
+   {
+    "w": "soul",
+    "start": 111.62,
+    "end": 112.5,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "We are heroes tonight",
+  "estimated": false,
+  "start": 112.5,
+  "end": 116.24,
+  "words": [
+   {
+    "w": "We",
+    "start": 112.5,
+    "end": 113.68,
+    "matched": true
+   },
+   {
+    "w": "are",
+    "start": 113.68,
+    "end": 114.18,
+    "matched": true
+   },
+   {
+    "w": "heroes",
+    "start": 114.18,
+    "end": 115.42,
+    "matched": true
+   },
+   {
+    "w": "tonight",
+    "start": 115.42,
+    "end": 116.24,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "We will fly above the sky",
+  "estimated": false,
+  "start": 116.24,
+  "end": 120.2,
+  "words": [
+   {
+    "w": "We",
+    "start": 116.24,
+    "end": 117.42,
+    "matched": true
+   },
+   {
+    "w": "will",
+    "start": 117.42,
+    "end": 117.76,
+    "matched": true
+   },
+   {
+    "w": "fly",
+    "start": 117.76,
+    "end": 118.34,
+    "matched": true
+   },
+   {
+    "w": "above",
+    "start": 118.34,
+    "end": 119.0,
+    "matched": true
+   },
+   {
+    "w": "the",
+    "start": 119.0,
+    "end": 119.62,
+    "matched": true
+   },
+   {
+    "w": "sky",
+    "start": 119.62,
+    "end": 120.2,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "We are heroes tonight, yeah",
+  "estimated": false,
+  "start": 120.2,
+  "end": 124.57,
+  "words": [
+   {
+    "w": "We",
+    "start": 120.2,
+    "end": 121.18,
+    "matched": true
+   },
+   {
+    "w": "are",
+    "start": 121.18,
+    "end": 121.66,
+    "matched": true
+   },
+   {
+    "w": "heroes",
+    "start": 121.66,
+    "end": 123.1,
+    "matched": true
+   },
+   {
+    "w": "tonight,",
+    "start": 123.1,
+    "end": 124.32,
+    "matched": true
+   },
+   {
+    "w": "yeah",
+    "start": 124.32,
+    "end": 124.57,
+    "matched": false
+   }
+  ]
+ },
+ {
+  "text": "We are heroes tonight",
+  "estimated": false,
+  "start": 126.36,
+  "end": 131.14,
+  "words": [
+   {
+    "w": "We",
+    "start": 126.36,
+    "end": 127.76,
+    "matched": true
+   },
+   {
+    "w": "are",
+    "start": 127.76,
+    "end": 129.16,
+    "matched": true
+   },
+   {
+    "w": "heroes",
+    "start": 129.16,
+    "end": 130.36,
+    "matched": true
+   },
+   {
+    "w": "tonight",
+    "start": 130.36,
+    "end": 131.14,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "We will fly above the sky",
+  "estimated": false,
+  "start": 131.7,
+  "end": 135.2,
+  "words": [
+   {
+    "w": "We",
+    "start": 131.7,
+    "end": 132.4,
+    "matched": true
+   },
+   {
+    "w": "will",
+    "start": 132.4,
+    "end": 132.78,
+    "matched": true
+   },
+   {
+    "w": "fly",
+    "start": 132.78,
+    "end": 133.3,
+    "matched": true
+   },
+   {
+    "w": "above",
+    "start": 133.3,
+    "end": 133.96,
+    "matched": true
+   },
+   {
+    "w": "the",
+    "start": 133.96,
+    "end": 134.6,
+    "matched": true
+   },
+   {
+    "w": "sky",
+    "start": 134.6,
+    "end": 135.2,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "We are heroes tonight, yeah",
+  "estimated": false,
+  "start": 135.2,
+  "end": 142.36,
+  "words": [
+   {
+    "w": "We",
+    "start": 135.2,
+    "end": 136.16,
+    "matched": true
+   },
+   {
+    "w": "are",
+    "start": 136.16,
+    "end": 136.72,
+    "matched": true
+   },
+   {
+    "w": "heroes",
+    "start": 136.72,
+    "end": 137.82,
+    "matched": true
+   },
+   {
+    "w": "tonight,",
+    "start": 137.82,
+    "end": 139.42,
+    "matched": true
+   },
+   {
+    "w": "yeah",
+    "start": 140.58,
+    "end": 142.36,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "We are heroes tonight, yeah",
+  "estimated": false,
+  "start": 142.36,
+  "end": 157.48,
+  "words": [
+   {
+    "w": "We",
+    "start": 142.36,
+    "end": 143.72,
+    "matched": true
+   },
+   {
+    "w": "are",
+    "start": 143.72,
+    "end": 151.64,
+    "matched": true
+   },
+   {
+    "w": "heroes",
+    "start": 151.64,
+    "end": 152.6,
+    "matched": true
+   },
+   {
+    "w": "tonight,",
+    "start": 152.6,
+    "end": 154.5,
+    "matched": true
+   },
+   {
+    "w": "yeah",
+    "start": 154.54,
+    "end": 157.48,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "Night, yeah",
+  "estimated": false,
+  "start": 169.6,
+  "end": 172.4,
+  "words": [
+   {
+    "w": "Night,",
+    "start": 169.6,
+    "end": 171.0,
+    "matched": true
+   },
+   {
+    "w": "yeah",
+    "start": 171.0,
+    "end": 172.4,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "We are heroes tonight",
+  "estimated": false,
+  "start": 172.96,
+  "end": 176.36,
+  "words": [
+   {
+    "w": "We",
+    "start": 172.96,
+    "end": 173.66,
+    "matched": true
+   },
+   {
+    "w": "are",
+    "start": 173.66,
+    "end": 174.04,
+    "matched": true
+   },
+   {
+    "w": "heroes",
+    "start": 174.04,
+    "end": 175.16,
+    "matched": true
+   },
+   {
+    "w": "tonight",
+    "start": 175.16,
+    "end": 176.36,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "We will fly above the sky",
+  "estimated": false,
+  "start": 176.36,
+  "end": 180.3,
+  "words": [
+   {
+    "w": "We",
+    "start": 176.36,
+    "end": 177.4,
+    "matched": true
+   },
+   {
+    "w": "will",
+    "start": 177.4,
+    "end": 177.82,
+    "matched": true
+   },
+   {
+    "w": "fly",
+    "start": 177.82,
+    "end": 178.28,
+    "matched": true
+   },
+   {
+    "w": "above",
+    "start": 178.28,
+    "end": 178.98,
+    "matched": true
+   },
+   {
+    "w": "the",
+    "start": 178.98,
+    "end": 179.64,
+    "matched": true
+   },
+   {
+    "w": "sky",
+    "start": 179.64,
+    "end": 180.3,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "We are heroes tonight, yeah",
+  "estimated": false,
+  "start": 180.3,
+  "end": 187.28,
+  "words": [
+   {
+    "w": "We",
+    "start": 180.3,
+    "end": 181.16,
+    "matched": true
+   },
+   {
+    "w": "are",
+    "start": 181.16,
+    "end": 181.52,
+    "matched": true
+   },
+   {
+    "w": "heroes",
+    "start": 181.52,
+    "end": 182.66,
+    "matched": true
+   },
+   {
+    "w": "tonight,",
+    "start": 182.66,
+    "end": 183.94,
+    "matched": true
+   },
+   {
+    "w": "yeah",
+    "start": 185.92,
+    "end": 187.28,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "I've been flying from town to town",
+  "estimated": false,
+  "start": 188.46,
+  "end": 191.48,
+  "words": [
+   {
+    "w": "I've",
+    "start": 188.46,
+    "end": 189.0,
+    "matched": true
+   },
+   {
+    "w": "been",
+    "start": 189.0,
+    "end": 189.24,
+    "matched": true
+   },
+   {
+    "w": "flying",
+    "start": 189.24,
+    "end": 189.82,
+    "matched": true
+   },
+   {
+    "w": "from",
+    "start": 190.03,
+    "end": 190.28,
+    "matched": false
+   },
+   {
+    "w": "town",
+    "start": 190.24,
+    "end": 190.68,
+    "matched": true
+   },
+   {
+    "w": "to",
+    "start": 190.68,
+    "end": 191.0,
+    "matched": true
+   },
+   {
+    "w": "town",
+    "start": 191.0,
+    "end": 191.48,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "From London to Taiwan",
+  "estimated": false,
+  "start": 191.48,
+  "end": 194.92,
+  "words": [
+   {
+    "w": "From",
+    "start": 191.48,
+    "end": 192.66,
+    "matched": true
+   },
+   {
+    "w": "London",
+    "start": 192.66,
+    "end": 193.64,
+    "matched": true
+   },
+   {
+    "w": "to",
+    "start": 193.64,
+    "end": 194.24,
+    "matched": true
+   },
+   {
+    "w": "Taiwan",
+    "start": 194.24,
+    "end": 194.92,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "I've been all around the globe",
+  "estimated": false,
+  "start": 194.92,
+  "end": 198.9,
+  "words": [
+   {
+    "w": "I've",
+    "start": 194.92,
+    "end": 196.32,
+    "matched": true
+   },
+   {
+    "w": "been",
+    "start": 196.32,
+    "end": 196.66,
+    "matched": true
+   },
+   {
+    "w": "all",
+    "start": 196.66,
+    "end": 197.36,
+    "matched": true
+   },
+   {
+    "w": "around",
+    "start": 197.36,
+    "end": 198.06,
+    "matched": true
+   },
+   {
+    "w": "the",
+    "start": 198.06,
+    "end": 198.46,
+    "matched": true
+   },
+   {
+    "w": "globe",
+    "start": 198.46,
+    "end": 198.9,
+    "matched": true
+   }
+  ]
+ },
+ {
+  "text": "Trying to protect your soul",
+  "estimated": false,
+  "start": 198.9,
+  "end": 202.46,
+  "words": [
+   {
+    "w": "Trying",
+    "start": 198.9,
+    "end": 199.72,
+    "matched": true
+   },
+   {
+    "w": "to",
+    "start": 199.72,
+    "end": 200.34,
+    "matched": true
+   },
+   {
+    "w": "protect",
+    "start": 200.34,
+    "end": 200.88,
+    "matched": true
+   },
+   {
+    "w": "your",
+    "start": 200.88,
+    "end": 201.64,
+    "matched": true
+   },
+   {
+    "w": "soul",
+    "start": 201.64,
+    "end": 202.46,
+    "matched": true
+   }
+  ]
+ }
+]

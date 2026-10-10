@@ -1,7 +1,7 @@
 // Piezas compartidas por las escenas: paleta, fondo, chispa, tipografía y ventanas.
 import * as THREE from 'three';
-import {FSPass} from '../engine/gl';
-import {clamp, spring} from '../engine/util';
+import {FSPass} from './engine/gl';
+import {clamp, spring} from './engine/util';
 
 // Colores CSS (sRGB) para Canvas2D.
 export const C = {

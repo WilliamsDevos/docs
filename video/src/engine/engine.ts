@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import {CLAPS, KICKS, beatAt, hit} from '../music';
 import {Compositor, FSPass, H, W, makeRT} from './gl';
 import {DEFAULT_POST, Post, type PostParams} from './post';
+import type {Audio, Entry, Rhythm} from './project';
 import type {Frame, Scene} from './scene';
 
-export type Entry = {id: string; start: number; end: number; scene: () => Promise<Scene>};
+const SILENCE: Audio = {rms: 0, low: 0, mid: 0, high: 0, vocal: 0};
 
 type Loaded = {entry: Entry; scene: Scene};
 
@@ -17,9 +17,10 @@ export class Engine {
   comp = new Compositor();
   post = new Post();
   private loaded: Loaded[] = [];
-  private sceneRT = makeRT();
-  private underRT = makeRT();
-  private accumRT = makeRT();
+  private overlays: Loaded[] = [];
+  private sceneRT = makeRT(W, H, true);
+  private underRT = makeRT(W, H, true);
+  private accumRT = makeRT(W, H, true);
   private mixPass = new FSPass(
     /* glsl */ `uniform sampler2D a, b; uniform float k; varying vec2 vUv;
     void main() { gl_FragColor = vec4(mix(texture2D(a, vUv).rgb, texture2D(b, vUv).rgb, k), 1.0); }`,
@@ -33,7 +34,7 @@ export class Engine {
   );
   private clearPass = new FSPass(`void main() { gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0); }`);
 
-  constructor(public canvas: HTMLCanvasElement, public fps: number) {
+  constructor(public canvas: HTMLCanvasElement, public fps: number, public rhythm: Rhythm) {
     this.renderer = new THREE.WebGLRenderer({
       canvas,
       antialias: false,
@@ -45,17 +46,15 @@ export class Engine {
     this.renderer.toneMapping = THREE.NoToneMapping;
   }
 
-  async load(entries: Entry[]) {
-    for (const entry of entries) {
+  async load(entries: Entry[], overlays: Entry[] = []) {
+    const boot = async (entry: Entry) => {
       const scene = await entry.scene();
       scene.ctx = {renderer: this.renderer, comp: this.comp, start: entry.start, end: entry.end, fps: this.fps};
       await scene.init();
-      this.loaded.push({entry, scene});
-    }
-  }
-
-  get duration() {
-    return Math.max(...this.loaded.map((l) => l.entry.end));
+      return {entry, scene};
+    };
+    for (const entry of entries) this.loaded.push(await boot(entry));
+    for (const entry of overlays) this.overlays.push(await boot(entry));
   }
 
   private frameAt(t: number, e: Entry): Frame {
@@ -63,21 +62,31 @@ export class Engine {
       t,
       lt: t - e.start,
       p: (t - e.start) / (e.end - e.start),
-      kick: hit(KICKS, t, 0.09),
-      clap: hit(CLAPS, t, 0.07),
-      beat: beatAt(t),
+      kick: this.rhythm.kick(t),
+      clap: this.rhythm.clap(t),
+      beat: this.rhythm.beat(t),
+      a: this.rhythm.audio?.(t) ?? SILENCE,
     };
   }
 
   /** Dibuja el instante `t` en `out`; devuelve los ajustes de post de la escena dominante. */
   private renderScenes(t: number, out: THREE.WebGLRenderTarget): Partial<PostParams> {
+    const post = this.renderBase(t, out);
+    // Las capas superpuestas dibujan encima de `out` sin borrarlo.
+    for (const o of this.overlays) {
+      if (t >= o.entry.start && t < o.entry.end) Object.assign(post, o.scene.render(this.frameAt(t, o.entry), out) ?? {});
+    }
+    return post;
+  }
+
+  private renderBase(t: number, out: THREE.WebGLRenderTarget): Partial<PostParams> {
     const active = this.loaded.filter((l) => t >= l.entry.start && t < l.entry.end);
     if (active.length === 0) {
       this.clearPass.render(this.renderer, out);
       return {};
     }
     const top = active[active.length - 1]!;
-    if (active.length === 1) return top.scene.render(this.frameAt(t, top.entry), out) ?? {};
+    if (active.length === 1) return {...top.scene.render(this.frameAt(t, top.entry), out)};
     // Fundido entre dos escenas solapadas.
     const under = active[active.length - 2]!;
     under.scene.render(this.frameAt(t, under.entry), this.underRT);

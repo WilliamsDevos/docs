@@ -1,9 +1,9 @@
 import type * as THREE from 'three';
-import {Layer2D} from '../engine/gl';
-import {Scene, type Frame} from '../engine/scene';
-import {ease, prog, spring} from '../engine/util';
+import {Layer2D} from '../../../engine/gl';
+import {Scene, type Frame} from '../../../engine/scene';
+import {ease, prog, spring} from '../../../engine/util';
 import {BEAT, DURATION} from '../music';
-import {Backdrop, C, font, revealWords, roundRect, shakeFrom} from './_kit';
+import {Backdrop, C, font, revealWords, roundRect, shakeFrom} from '../../../kit';
 
 export default class Stats extends Scene {
   bg = new Backdrop();

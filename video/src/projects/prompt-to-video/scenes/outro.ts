@@ -1,9 +1,9 @@
 import type * as THREE from 'three';
-import {Layer2D} from '../engine/gl';
-import type {PostParams} from '../engine/post';
-import {Scene, type Frame} from '../engine/scene';
-import {ease, prog, spring} from '../engine/util';
-import {Backdrop, C, MONO, drawSpark, font, revealWords} from './_kit';
+import {Layer2D} from '../../../engine/gl';
+import type {PostParams} from '../../../engine/post';
+import {Scene, type Frame} from '../../../engine/scene';
+import {ease, prog, spring} from '../../../engine/util';
+import {Backdrop, C, MONO, drawSpark, font, revealWords} from '../../../kit';
 
 export default class Outro extends Scene {
   bg = new Backdrop();

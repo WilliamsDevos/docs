@@ -4,12 +4,14 @@ import '@fontsource/inter/800.css';
 import '@fontsource/jetbrains-mono/400.css';
 import '@fontsource/jetbrains-mono/700.css';
 import {Engine} from './engine/engine';
-import {TIMELINE} from './timeline';
+import type {Project} from './engine/project';
+import {DEFAULT_PROJECT, PROJECTS} from './projects';
 
 const params = new URLSearchParams(location.search);
 const exporting = params.has('export');
 const fps = Number(params.get('fps') ?? 30);
 const only = params.get('only')?.split(',');
+const projectId = params.get('project') ?? DEFAULT_PROJECT;
 
 // API que usa scripts/render.ts desde Chromium headless.
 const api = {
@@ -17,17 +19,23 @@ const api = {
   error: '' as string,
   fps,
   duration: 0,
+  audio: '',
   still(t: number, samples = 1, shutter = 0.5) {
     engine.render(t, samples, shutter);
   },
   png() {
     return canvas.toDataURL('image/png').split(',')[1]!;
   },
+  /** Para depurar desde la consola o desde playwright. */
+  get engine() {
+    return engine;
+  },
 };
 (window as unknown as {__video: typeof api}).__video = api;
 
 const canvas = document.getElementById('c') as HTMLCanvasElement;
-const engine = new Engine(canvas, fps);
+let engine: Engine;
+let project: Project;
 
 async function boot() {
   if (exporting) document.body.classList.add('export');
@@ -36,23 +44,32 @@ async function boot() {
       (f) => document.fonts.load(f, 'aáéíóúñ'),
     ),
   );
-  await engine.load(only ? TIMELINE.filter((e) => only.includes(e.id)) : TIMELINE);
-  api.duration = engine.duration;
+  const load = PROJECTS[projectId];
+  if (!load) throw new Error(`proyecto desconocido: ${projectId} (hay: ${Object.keys(PROJECTS).join(', ')})`);
+  project = await load();
+  document.title = project.title;
+  engine = new Engine(canvas, fps, project.rhythm);
+  await engine.load(
+    only ? project.timeline.filter((e) => only.includes(e.id)) : project.timeline,
+    params.has('nooverlay') ? [] : project.overlays,
+  );
+  api.duration = project.duration;
+  api.audio = project.audio;
   api.ready = true;
   if (!exporting) preview();
 }
 
 function preview() {
-  const audio = new Audio('/soundtrack.wav');
+  const audio = new Audio(`/${project.audio}`);
   const scrub = document.getElementById('scrub') as HTMLInputElement;
   const label = document.getElementById('time')!;
-  scrub.max = String(engine.duration);
+  scrub.max = String(project.duration);
   let t = Number(params.get('t') ?? 0);
   let playing = false;
   let last = 0;
 
   const seek = (to: number) => {
-    t = Math.min(engine.duration - 1e-3, Math.max(0, to));
+    t = Math.min(project.duration - 1e-3, Math.max(0, to));
     audio.currentTime = t;
   };
   const toggle = () => {
@@ -78,7 +95,7 @@ function preview() {
     if (playing) {
       // El audio manda el reloj para que imagen y sonido no se separen.
       t = audio.paused ? t + (now - last) / 1000 : audio.currentTime;
-      if (t >= engine.duration) {
+      if (t >= project.duration) {
         t = 0;
         audio.currentTime = 0;
       }

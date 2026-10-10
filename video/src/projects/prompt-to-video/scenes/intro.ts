@@ -1,8 +1,8 @@
 import type * as THREE from 'three';
-import {Layer2D} from '../engine/gl';
-import {Scene, type Frame} from '../engine/scene';
-import {ease, prog, spring} from '../engine/util';
-import {Backdrop, C, drawSpark, revealWords, shakeFrom} from './_kit';
+import {Layer2D} from '../../../engine/gl';
+import {Scene, type Frame} from '../../../engine/scene';
+import {ease, prog, spring} from '../../../engine/util';
+import {Backdrop, C, drawSpark, revealWords, shakeFrom} from '../../../kit';
 
 // Tres frases, una por golpe: "Un prompt." · "Un poco de código." · "Un video."
 const LINES = [

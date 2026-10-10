@@ -1,3 +1,5 @@
 node_modules
 out
 public/soundtrack.wav
+# Canciones de terceros: cada uno pone su copia (ver README)
+public/audio/

@@ -1,8 +1,8 @@
 import type * as THREE from 'three';
-import {Layer2D} from '../engine/gl';
-import {Scene, type Frame} from '../engine/scene';
-import {ease, prog, spring} from '../engine/util';
-import {Backdrop, C, MONO, drawSpark, drawWindow, font, revealWords, roundRect, shakeFrom} from './_kit';
+import {Layer2D} from '../../../engine/gl';
+import {Scene, type Frame} from '../../../engine/scene';
+import {ease, prog, spring} from '../../../engine/util';
+import {Backdrop, C, MONO, drawSpark, drawWindow, font, revealWords, roundRect, shakeFrom} from '../../../kit';
 
 const CODE = `export function logo(t: number) {
   const frame = Math.floor(t * 30);

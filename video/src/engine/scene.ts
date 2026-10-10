@@ -1,5 +1,6 @@
 import type * as THREE from 'three';
 import type {Compositor} from './gl';
+import type {Audio} from './project';
 import type {PostParams} from './post';
 
 export type Frame = {
@@ -9,6 +10,7 @@ export type Frame = {
   kick: number; // envolvente del bombo 0..1
   clap: number;
   beat: number; // índice de tiempo continuo
+  a: Audio; // envolventes de la música (ceros si el proyecto no las da)
 };
 
 export type SceneContext = {

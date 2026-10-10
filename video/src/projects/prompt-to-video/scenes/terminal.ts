@@ -1,9 +1,9 @@
 import * as THREE from 'three';
-import {Layer2D} from '../engine/gl';
-import {Scene, type Frame} from '../engine/scene';
-import {ease, prog, spring} from '../engine/util';
+import {Layer2D} from '../../../engine/gl';
+import {Scene, type Frame} from '../../../engine/scene';
+import {ease, prog, spring} from '../../../engine/util';
 import {BEAT, DURATION, TYPE_END, TYPE_START, typedAt} from '../music';
-import {Backdrop, C, MONO, drawSpark, drawWindow, font, roundRect, shakeFrom} from './_kit';
+import {Backdrop, C, MONO, drawSpark, drawWindow, font, roundRect, shakeFrom} from '../../../kit';
 
 const WIN_W = 1380;
 const WIN_H = 820;

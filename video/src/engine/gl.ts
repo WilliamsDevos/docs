@@ -66,12 +66,13 @@ export class FSPass {
   }
 }
 
-export const makeRT = (w = W, h = H) =>
+/** Destino HDR. Con `depth`, las escenas 3D pueden ocultar lo que queda detrás (llamar a clearDepth antes). */
+export const makeRT = (w = W, h = H, depth = false) =>
   new THREE.WebGLRenderTarget(w, h, {
     type: THREE.HalfFloatType,
     minFilter: THREE.LinearFilter,
     magFilter: THREE.LinearFilter,
-    depthBuffer: false,
+    depthBuffer: depth,
   });
 
 /** Capa Canvas2D de 1920×1080 que se sube como textura sRGB. */

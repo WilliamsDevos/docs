@@ -1,3 +1,6 @@
+import type {Rhythm} from '../../engine/project';
+import {hit} from '../../engine/util';
+
 // La partitura. La comparten el sintetizador (scripts/soundtrack.ts) y las escenas,
 // así que cada golpe visual cae exactamente sobre su golpe de audio.
 
@@ -56,14 +59,10 @@ export const KEY_CLICKS: number[] = Array.from(
   (_, i) => TYPE_START + i / TYPE_CPS,
 ).filter((_, i) => PROMPT[i] !== ' ');
 
-/** Envolvente 0..1 que decae tras el último evento anterior a `t`. */
-export function hit(events: number[], t: number, halfLife = 0.12) {
-  let last = -Infinity;
-  for (const e of events) {
-    if (e <= t) last = e;
-    else break;
-  }
-  return last === -Infinity ? 0 : Math.pow(0.5, (t - last) / halfLife);
-}
-
 export const beatAt = (t: number) => t / BEAT;
+
+export const rhythm: Rhythm = {
+  beat: beatAt,
+  kick: (t) => hit(KICKS, t, 0.09),
+  clap: (t) => hit(CLAPS, t, 0.07),
+};
