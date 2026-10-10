@@ -14,6 +14,9 @@ un proyecto en `src/projects/<id>/`:
 enfoque (render determinista en el navegador, Chromium headless y ffmpeg). El motor, las
 escenas y el audio de este proyecto están escritos desde cero.
 
+> **Plan:** la evolución de esto en una herramienta web ("Estudio": subir canción y letra, describir
+> el video y recibirlo, con render en la GPU del PC) está en [`docs/PLAN-ESTUDIO.md`](docs/PLAN-ESTUDIO.md).
+
 ## Cómo funciona (prompt-to-video)
 
 ```
