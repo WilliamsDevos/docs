@@ -7,7 +7,8 @@ un proyecto en `src/projects/<id>/`:
 | Proyecto | Qué es |
 |---|---|
 | `prompt-to-video` | 40 s de motion graphics sobre cómo se hacen videos con código. La banda sonora se sintetiza desde cero a partir de la misma partitura que mueve los visuales. |
-| `heroes-tonight` | Video con letra para *Janji – Heroes Tonight (feat. Johnning)* [NCS Release]: la historia de un "héroe de luz", sincronizada con el tempo, los golpes y la voz reales de la canción. |
+| `heroes-tonight` | Video tipográfico con letra para *Janji – Heroes Tonight (feat. Johnning)* [NCS Release]: tinta y papel, una cinta roja como único color, letra palabra a palabra sincronizada con la voz real. |
+| `heroes-neon` | Primera versión de la misma canción ("héroe de luz", estilo neón). Se conserva como referencia. |
  El repositorio
 [mexicat/pdoom-video](https://github.com/mexicat/pdoom-video) sirvió solo como referencia de
 enfoque (render determinista en el navegador, Chromium headless y ffmpeg). El motor, las
@@ -43,21 +44,32 @@ Con música real no hay partitura, así que se extrae del audio:
 1. **Análisis** (`analysis/analyze.py`, Python con uv y librosa): tempo constante (128 BPM), rejilla
    de tiempos y compases, golpes de bombo, caja y charles, envolventes de energía y voz aislada
    con REPET-SIM. El resultado va a `audio.json`.
-2. **Letra** (`analysis/align.py`): Whisper (faster-whisper, `large-v3-turbo`) transcribe la voz
-   con tiempos por palabra. Un alineamiento global por programación dinámica empareja lo oído con
-   la letra real, así que la letra manda sobre el texto y Whisper solo aporta los tiempos. Con
-   `--rescan INICIO:FIN` se vuelve a transcribir un tramo donde la voz queda tapada por el drop.
+2. **Letra, primera pasada** (`analysis/align.py`): Whisper (faster-whisper, `large-v3-turbo`)
+   transcribe la voz con tiempos por palabra. Un alineamiento global por programación dinámica
+   empareja lo oído con la letra real, así que la letra manda sobre el texto y Whisper solo aporta
+   dónde está cada frase. Con `--rescan INICIO:FIN` se vuelve a transcribir un tramo donde la voz
+   queda tapada por el drop.
+3. **Voz aislada** (`analysis/separate.py`): Demucs (`htdemucs_ft`, el modelo especializado en voz).
+   Los pesos vienen de una copia en Hugging Face, así que el script comprueba su SHA-256 y los carga
+   con `torch.load(weights_only=True)`: un archivo manipulado no puede ejecutar código.
+4. **Letra, tiempos finos** (`analysis/ctc_align.py`): alineación forzada CTC (torchaudio MMS_FA)
+   de cada frase sobre la voz aislada, dentro de la ventana de Whisper. Whisper adelantaba las
+   palabras unos 0.3 s (hasta 1.1 s en estribillos); el CTC las coloca en el inicio real de cada
+   sílaba. Con `--plots` dibuja el espectrograma de cada frase con ambos tiempos para revisarlos.
    El resultado va a `lyrics.json`.
-3. **Escenas**: leen `music.ts` (secciones, bombos, envolventes) y `lyrics.ts` (`findLine`,
+5. **Escenas**: leen `music.ts` (secciones, bombos, envolventes) y `lyrics.ts` (`findLine`,
    `findWord`). Así, un arco del globo se dibuja exactamente mientras suena *"From London to
    Taiwan"* y la dinamita estalla en la palabra *"explode"*.
 
 ```sh
 cd video/analysis
 uv sync
-uv run python analyze.py ../public/audio/heroes-tonight.mp3 ../src/projects/heroes-tonight/audio.json --plots ../out/analysis
-uv run python align.py ../public/audio/heroes-tonight.mp3 ../src/projects/heroes-tonight/lyrics.txt \
-  ../src/projects/heroes-tonight/lyrics.json --rescan 138:190
+uv run python analyze.py ../public/audio/heroes-tonight.mp3 ../src/songs/heroes-tonight/audio.json --plots ../out/analysis
+uv run python align.py ../public/audio/heroes-tonight.mp3 ../src/songs/heroes-tonight/lyrics.txt \
+  ../src/songs/heroes-tonight/lyrics.json --rescan 138:190
+# pesos de Demucs (voz): https://huggingface.co/dokodesuka/htdemucs_ft → models/htdemucs_ft/04573f0d-f3cf25b2.th
+uv run python separate.py ../public/audio/heroes-tonight.mp3 ../out/analysis/vocals.wav
+uv run python ctc_align.py ../out/analysis/vocals.wav ../src/songs/heroes-tonight/lyrics.json --plots ../out/analysis/ctc
 ```
 
 El MP3 no está en el repositorio. Descárgalo de [ncs.io/HeroesTonight](https://ncs.io/HeroesTonight)
@@ -113,8 +125,10 @@ bun scripts/render.ts sheet --n 40 --cols 5                     # hoja de contac
 video/
 ├── index.html               Vista previa
 ├── analysis/                Python (uv): análisis de audio y alineación de letra
-│   ├── analyze.py
-│   └── align.py
+│   ├── analyze.py           tempo, compases, golpes, envolventes
+│   ├── align.py             letra con Whisper (qué frase y dónde)
+│   ├── separate.py          voz aislada con Demucs
+│   └── ctc_align.py         tiempos finos por palabra (CTC)
 ├── scripts/
 │   ├── render.ts            Render offline (Chromium headless → ffmpeg)
 │   └── soundtrack.ts        Sintetizador de la banda sonora de prompt-to-video
@@ -128,11 +142,13 @@ video/
     │   ├── project.ts       Tipos Project, Entry y Rhythm
     │   ├── scene.ts         Clase base Scene y tipo Frame
     │   └── util.ts          Curvas, resortes, azar con semilla, envolventes de golpes
-    └── projects/
-        ├── index.ts         Registro de proyectos
-        ├── prompt-to-video/ music.ts (partitura), timeline.ts, scenes/
-        └── heroes-tonight/  audio.json y lyrics.json (análisis), music.ts, lyrics.ts,
-                             sky/street/hero/particles (piezas), scenes/, timeline.ts
+    ├── projects/
+    │   ├── index.ts         Registro de proyectos
+    │   ├── prompt-to-video/ music.ts (partitura), timeline.ts, scenes/
+    │   ├── heroes-tonight/  kit.ts (sistema tipográfico), scenes/, timeline.ts
+    │   └── heroes-neon/     sky/street/hero/particles, scenes/, timeline.ts
+    └── songs/
+        └── heroes-tonight/  audio.json y lyrics.json (análisis), music.ts, lyrics.ts
 ```
 
 Un proyecto exporta un `Project` con su duración, su audio (ruta dentro de `public/`), su ritmo
