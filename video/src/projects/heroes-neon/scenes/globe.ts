@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {Scene, type Frame} from '../../../engine/scene';
 import {ease, mulberry32, prog, spring} from '../../../engine/util';
-import {findLine, findWord} from '../lyrics';
+import {findLine, findWord} from '../../../songs/heroes-tonight/lyrics';
 import {Sky} from '../sky';
 
 // Manchas aproximadas de los continentes: [lat, lon, radio en grados].

@@ -9,6 +9,8 @@
     "render": "bun scripts/render.ts video"
   },
   "dependencies": {
+    "@fontsource-variable/archivo": "5.2.6",
+    "@fontsource/instrument-serif": "5.2.6",
     "@fontsource/inter": "5.2.6",
     "@fontsource/jetbrains-mono": "5.2.6",
     "three": "0.180.0"

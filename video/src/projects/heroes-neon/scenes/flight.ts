@@ -3,7 +3,7 @@ import {FSPass, Layer2D} from '../../../engine/gl';
 import {Scene, type Frame} from '../../../engine/scene';
 import {shakeFrom} from '../../../kit';
 import {drawHero} from '../hero';
-import {KICKS, barAt} from '../music';
+import {KICKS, barAt} from '../../../songs/heroes-tonight/music';
 import {P} from '../palette';
 
 const PALETTES: [string, string][] = [

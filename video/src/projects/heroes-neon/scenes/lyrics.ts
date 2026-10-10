@@ -3,7 +3,7 @@ import {Layer2D} from '../../../engine/gl';
 import {Scene, type Frame} from '../../../engine/scene';
 import {clamp, ease, prog, spring} from '../../../engine/util';
 import {font} from '../../../kit';
-import {LINES, type Line} from '../lyrics';
+import {LINES, type Line} from '../../../songs/heroes-tonight/lyrics';
 import {P} from '../palette';
 
 const STYLE = {

@@ -3,6 +3,9 @@ import '@fontsource/inter/600.css';
 import '@fontsource/inter/800.css';
 import '@fontsource/jetbrains-mono/400.css';
 import '@fontsource/jetbrains-mono/700.css';
+import '@fontsource-variable/archivo/wdth.css';
+import '@fontsource/instrument-serif/400.css';
+import '@fontsource/instrument-serif/400-italic.css';
 import {Engine} from './engine/engine';
 import type {Project} from './engine/project';
 import {DEFAULT_PROJECT, PROJECTS} from './projects';
@@ -40,7 +43,7 @@ let project: Project;
 async function boot() {
   if (exporting) document.body.classList.add('export');
   await Promise.all(
-    ['400 40px Inter', '600 40px Inter', '800 40px Inter', '400 40px "JetBrains Mono"', '700 40px "JetBrains Mono"'].map(
+    ['400 40px Inter', '600 40px Inter', '800 40px Inter', '400 40px "JetBrains Mono"', '700 40px "JetBrains Mono"', '800 40px "Archivo Variable"', '40px "Instrument Serif"', 'italic 40px "Instrument Serif"'].map(
       (f) => document.fonts.load(f, 'aáéíóúñ'),
     ),
   );

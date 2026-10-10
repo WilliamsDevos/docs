@@ -1,8 +1,8 @@
 // Programa de partículas: energía que converge en el héroe en las subidas y la dinamita de la estrofa 2.
 import {mulberry32} from '../../engine/util';
-import {findLine, findWord} from './lyrics';
+import {findLine, findWord} from '../../songs/heroes-tonight/lyrics';
 import {Particles, type Shell} from './particles';
-import {BEAT, SECTIONS, bar} from './music';
+import {BEAT, SECTIONS, bar} from '../../songs/heroes-tonight/music';
 
 /** Núcleo de energía del héroe durante las subidas (pecho de la silueta). */
 export const CORE = {x: 960, y: 760};

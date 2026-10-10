@@ -4,8 +4,8 @@ import {Scene, type Frame} from '../../../engine/scene';
 import {ease, prog} from '../../../engine/util';
 import {font} from '../../../kit';
 import {drawHero} from '../hero';
-import {LINES} from '../lyrics';
-import {DURATION} from '../music';
+import {LINES} from '../../../songs/heroes-tonight/lyrics';
+import {DURATION} from '../../../songs/heroes-tonight/music';
 import {P} from '../palette';
 import {Sky} from '../sky';
 

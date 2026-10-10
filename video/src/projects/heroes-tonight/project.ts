@@ -1,6 +1,6 @@
 import type {Project} from '../../engine/project';
-import {DURATION, rhythm} from './music';
-import {OVERLAYS, TIMELINE} from './timeline';
+import {DURATION, rhythm} from '../../songs/heroes-tonight/music';
+import {TIMELINE} from './timeline';
 
 export const project: Project = {
   id: 'heroes-tonight',
@@ -9,5 +9,4 @@ export const project: Project = {
   audio: 'audio/heroes-tonight.mp3',
   rhythm,
   timeline: TIMELINE,
-  overlays: OVERLAYS,
 };
