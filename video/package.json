@@ -10,7 +10,10 @@
     "render:prompt": "bun scripts/render.ts video --project prompt-to-video --out out/prompt-to-video.mp4",
     "render:heroes": "bun scripts/render.ts video --project heroes-tonight --out out/heroes-tonight.mp4",
     "render:heroes-blur": "bun scripts/render.ts video --project heroes-tonight --samples 4 --out out/heroes-tonight-blur.mp4",
-    "typecheck": "tsc --noEmit -p tsconfig.json"
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "render:heroes:amd": "bun scripts/render.ts video --project heroes-tonight --angle d3d11 --workers 3 --encoder amf --out out/heroes-tonight.mp4",
+    "render:heroes:amd-rapido": "bun scripts/render.ts video --project heroes-tonight --angle d3d11 --workers 4 --encoder amf --jpeg --out out/heroes-tonight.mp4",
+    "render:heroes:amd-blur": "bun scripts/render.ts video --project heroes-tonight --angle d3d11 --workers 3 --encoder amf --samples 4 --out out/heroes-tonight-blur.mp4"
   },
   "dependencies": {
     "@fontsource-variable/archivo": "5.2.6",

@@ -29,6 +29,10 @@ const api = {
   png() {
     return canvas.toDataURL('image/png').split(',')[1]!;
   },
+  /** JPEG de alta calidad: bastante más rápido de codificar que PNG (útil con GPU). */
+  jpeg(quality = 0.95) {
+    return canvas.toDataURL('image/jpeg', quality).split(',')[1]!;
+  },
   /** Para depurar desde la consola o desde playwright. */
   get engine() {
     return engine;

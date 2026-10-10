@@ -99,40 +99,68 @@ Para otro proyecto añade `?project=heroes-tonight` a la URL de la vista previa,
 En la vista previa: **espacio** reproduce o pausa, **←/→** salta ±1 s (±5 s con shift),
 **,** y **.** avanzan un fotograma, **h** oculta la barra. Con `?t=22` empiezas en un segundo concreto.
 
-### Renderizar en tu PC (con GPU)
+### Renderizar en Windows con GPU AMD
 
 Todo el análisis (tempo, golpes, voz, letra alineada) ya está en el repositorio, en
-`src/songs/heroes-tonight/`. Para renderizar no hace falta Python, solo:
+`src/songs/heroes-tonight/`. Para renderizar no hace falta Python.
 
-1. [bun](https://bun.sh), [ffmpeg](https://ffmpeg.org) en el `PATH` y Google Chrome instalado.
-   En Windows: `winget install Oven-sh.Bun Gyan.FFmpeg Google.Chrome`.
-2. Clonar el repositorio, ir a la rama del video e instalar dependencias:
-   ```sh
+1. **Herramientas** (PowerShell; después abre una terminal nueva para que se actualice el `PATH`):
+   ```powershell
+   winget install Oven-sh.Bun Gyan.FFmpeg Google.Chrome Git.Git
+   ```
+   Ten los drivers de AMD (Adrenalin) al día: el codificador por hardware de ffmpeg (`h264_amf`)
+   depende de ellos.
+2. **Código:**
+   ```powershell
    git clone https://github.com/WilliamsDevos/docs.git
    cd docs
    git checkout claude/nifty-bell-wu43rk
    cd video
    bun install
    ```
-3. Poner la canción en `video/public/audio/heroes-tonight.mp3` (de [ncs.io/HeroesTonight](https://ncs.io/HeroesTonight)).
-4. Renderizar (en PowerShell o en la terminal que uses, dentro de `video`):
-   ```sh
-   bun run render:heroes          # → out/heroes-tonight.mp4
-   bun run render:heroes-blur     # igual, con desenfoque de movimiento (4 sub-fotogramas)
-   bun run render:prompt          # el video "Prompt → Video" (genera su banda sonora si falta)
+3. **Canción:** guarda el MP3 de [ncs.io/HeroesTonight](https://ncs.io/HeroesTonight) como
+   `video\public\audio\heroes-tonight.mp3`.
+4. **Render:** doble clic en `video\render-heroes-amd.cmd`, o en la terminal:
+   ```powershell
+   bun run render:heroes:amd          # → out\heroes-tonight.mp4
    ```
-   Para ver antes la vista previa en el navegador: `bunx vite` y abre
-   `http://localhost:5173/?project=heroes-tonight` (espacio para reproducir).
 
-Al arrancar, el script imprime `WebGL: …` con la tarjeta que está usando. Si dice *SwiftShader*,
-*llvmpipe* o *software*, va por CPU: prueba `--angle d3d11` (Windows), `--angle metal` (Mac) o
-`--angle vulkan` (Linux), y si sigue igual, `--headed` (abre una ventana visible). Con GPU, cada
-fotograma tarda unos milisegundos en lugar de casi un segundo. El cuello de botella pasa a ser la
-codificación de x264: `--preset medium` lo acelera a costa de un archivo algo mayor.
+Qué hace `render:heroes:amd`:
 
-Los atajos admiten opciones extra tras `--`, por ejemplo `bun run render:heroes -- --angle d3d11`.
-El grano de película hace que el archivo pese mucho a CRF 18. Para compartirlo, recomprímelo:
-`ffmpeg -i out/heroes-tonight.mp4 -c:v libx264 -crf 26 -tune grain -c:a copy out/heroes-tonight-share.mp4`.
+| Opción | Para qué |
+|---|---|
+| `--angle d3d11` | WebGL por Direct3D 11, el camino más estable para AMD en Windows |
+| (siempre) `--force_high_performance_gpu` | en portátiles con gráfica integrada, pide la AMD |
+| `--workers 3` | tres pestañas renderizan fotogramas alternos en paralelo (se escriben en orden) |
+| `--encoder amf` | codifica H.264 en el chip de vídeo de la AMD (VCN) y deja la CPU libre |
+
+Al arrancar, el script imprime la tarjeta que usa WebGL y el codificador:
+
+```
+WebGL: ANGLE (AMD, AMD Radeon RX …, Direct3D11 …)
+codificador: h264_amf (GPU)
+3 pestañas en paralelo
+```
+
+- Si WebGL no muestra *AMD/Radeon*, ve a **Configuración → Sistema → Pantalla → Gráficos**, añade
+  Google Chrome, elige **Alto rendimiento** y vuelve a lanzarlo. Si dice *SwiftShader* (CPU), prueba
+  añadiendo `--headed`: `bun run render:heroes:amd -- --headed`.
+- Si el codificador dice *no disponible*, el render sigue con x264 por CPU. Es más lento pero da el
+  mismo resultado. Suele arreglarse actualizando los drivers de AMD.
+
+Variantes:
+
+```powershell
+bun run render:heroes:amd-rapido   # fotogramas JPEG (calidad 95) y 4 pestañas: más rápido, diferencia invisible
+bun run render:heroes:amd-blur     # con desenfoque de movimiento (4 sub-fotogramas, ~4 veces más lento)
+bun run render:heroes:amd -- --qp 22   # archivo más ligero (qp más alto = menos calidad)
+```
+
+Vista previa en el navegador antes de renderizar: `bunx vite` y abre
+`http://localhost:5173/?project=heroes-tonight` (barra espaciadora para reproducir con audio).
+
+Para compartir, el grano de película hace que el archivo pese mucho. Recomprímelo así:
+`ffmpeg -i out\heroes-tonight.mp4 -c:v libx264 -crf 26 -tune grain -c:a copy out\heroes-tonight-share.mp4`.
 
 ### Renderizar
 
@@ -151,6 +179,10 @@ bun scripts/render.ts sheet --n 40 --cols 5                     # hoja de contac
 | `--from` / `--to` | Rango de tiempo en segundos |
 | `--only a,b` | Carga solo esas escenas del montaje |
 | `--angle backend` | Backend de GPU de Chrome: `d3d11`, `metal`, `vulkan` o `gl` |
+| `--workers N` | N pestañas renderizan en paralelo (con GPU, 3–4 va bien) |
+| `--encoder enc` | `x264` (CPU, por defecto), `amf` (AMD), `nvenc` (NVIDIA) o `qsv` (Intel); se prueba y si falla usa x264 |
+| `--qp N` | Calidad con codificador de GPU (por defecto 18; más alto = archivo más ligero) |
+| `--jpeg` | Fotogramas JPEG (calidad 95) en vez de PNG: más rápido |
 | `--headed` | Abre una ventana visible (algunos drivers no aceleran en modo oculto) |
 | `--swiftshader` | WebGL por CPU, para máquinas o contenedores sin GPU |
 | `--project id` | Proyecto a renderizar (por defecto `prompt-to-video`) |
