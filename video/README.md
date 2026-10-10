@@ -120,7 +120,10 @@ Todo el análisis (tempo, golpes, voz, letra alineada) ya está en el repositori
    ```
 3. **Canción:** guarda el MP3 de [ncs.io/HeroesTonight](https://ncs.io/HeroesTonight) como
    `video\public\audio\heroes-tonight.mp3`.
-4. **Render:** doble clic en `video\render-heroes-amd.cmd`, o en la terminal:
+4. **Preparar sin renderizar** (opcional): doble clic en `video\preparar-windows.cmd`. Instala las
+   dependencias, crea la carpeta de la canción y comprueba la GPU y el codificador en unos segundos
+   (`bun run check:heroes:amd`), sin empezar el render.
+5. **Render:** doble clic en `video\render-heroes-amd.cmd`, o en la terminal:
    ```powershell
    bun run render:heroes:amd          # → out\heroes-tonight.mp4
    ```

@@ -4,6 +4,7 @@
 //
 //   bun scripts/render.ts stills --t 1.5,8,23 [--only intro,code] [--out out/stills]
 //   bun scripts/render.ts sheet  [--from 0] [--to 40] [--n 24] [--cols 6] [--out out/sheet.png]
+//   bun scripts/render.ts check  [--encoder amf]   (no renderiza: GPU de WebGL, codificador y audio)
 //   bun scripts/render.ts video  [--from 0] [--to 40] [--fps 30] [--samples 1] [--shutter 0.5] [--crf 18] [--out out/video.mp4]
 //                                [--workers N] [--encoder x264|amf|nvenc|qsv] [--qp 18] [--jpeg]
 //
@@ -239,6 +240,15 @@ async function video(pages: Page[], duration: number, audioPath: string) {
   console.log(`\n${path.relative(process.cwd(), out)}`);
 }
 
+/** Comprobación previa: no renderiza nada, solo dice si todo está listo. */
+async function check(audioPath: string) {
+  await encoderArgs();
+  const audio = path.join(APP, 'public', audioPath);
+  if (audioPath === 'soundtrack.wav' || existsSync(audio)) console.log(`audio: ${path.relative(APP, audio)} ✓`);
+  else console.log(`audio: falta ${audio}`);
+  console.log('comprobación terminada (no se ha renderizado nada)');
+}
+
 const server = await startServer();
 let browser: Browser | undefined;
 try {
@@ -248,7 +258,8 @@ try {
   const main = opened[0]!;
   reportGpu(main.gpu);
   if (workers > 1) console.log(`${workers} pestañas en paralelo`);
-  if (mode === 'stills') await stills(main.page);
+  if (mode === 'check') await check(main.audio);
+  else if (mode === 'stills') await stills(main.page);
   else if (mode === 'sheet') await sheet(main.page, main.duration);
   else if (mode === 'video') await video(opened.map((o) => o.page), main.duration, main.audio);
   else throw new Error(`modo desconocido: ${mode}`);

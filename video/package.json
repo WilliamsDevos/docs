@@ -13,7 +13,8 @@
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "render:heroes:amd": "bun scripts/render.ts video --project heroes-tonight --angle d3d11 --workers 3 --encoder amf --out out/heroes-tonight.mp4",
     "render:heroes:amd-rapido": "bun scripts/render.ts video --project heroes-tonight --angle d3d11 --workers 4 --encoder amf --jpeg --out out/heroes-tonight.mp4",
-    "render:heroes:amd-blur": "bun scripts/render.ts video --project heroes-tonight --angle d3d11 --workers 3 --encoder amf --samples 4 --out out/heroes-tonight-blur.mp4"
+    "render:heroes:amd-blur": "bun scripts/render.ts video --project heroes-tonight --angle d3d11 --workers 3 --encoder amf --samples 4 --out out/heroes-tonight-blur.mp4",
+    "check:heroes:amd": "bun scripts/render.ts check --project heroes-tonight --angle d3d11 --encoder amf"
   },
   "dependencies": {
     "@fontsource-variable/archivo": "5.2.6",
