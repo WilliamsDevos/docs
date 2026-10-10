@@ -6,8 +6,10 @@
 //   bun scripts/render.ts sheet  [--from 0] [--to 40] [--n 24] [--cols 6] [--out out/sheet.png]
 //   bun scripts/render.ts video  [--from 0] [--to 40] [--fps 30] [--samples 1] [--shutter 0.5] [--crf 18] [--out out/video.mp4]
 //
-// Opciones comunes: --project <id> (por defecto prompt-to-video), --chrome <ruta> (o CHROME_PATH), --swiftshader (WebGL por CPU, para
-// contenedores sin GPU), --url <servidor vite ya arrancado>.
+// Opciones comunes: --project <id> (por defecto prompt-to-video), --chrome <ruta> (o CHROME_PATH),
+// --angle <d3d11|metal|vulkan|gl> (backend de GPU de Chrome), --headed (ventana visible, por si el
+// driver no acelera en modo oculto), --swiftshader (WebGL por CPU, para contenedores sin GPU),
+// --url <servidor vite ya arrancado>.
 import {chromium, type Browser, type Page} from 'playwright-core';
 import {existsSync, mkdirSync} from 'node:fs';
 import path from 'node:path';
@@ -51,7 +53,11 @@ async function openPage(url: string): Promise<{browser: Browser; page: Page; dur
   const executablePath = opt('chrome') ?? process.env.CHROME_PATH;
   const args = ['--disable-background-timer-throttling', '--disable-renderer-backgrounding', '--ignore-gpu-blocklist'];
   if (flag('swiftshader')) args.push('--use-angle=swiftshader', '--enable-unsafe-swiftshader');
-  const browser = await chromium.launch(executablePath ? {executablePath, args} : {channel: 'chrome', args});
+  else args.push('--enable-gpu', '--enable-gpu-rasterization');
+  const angle = opt('angle');
+  if (angle) args.push(`--use-angle=${angle}`);
+  const headless = !flag('headed');
+  const browser = await chromium.launch(executablePath ? {executablePath, args, headless} : {channel: 'chrome', args, headless});
   const page = await browser.newPage({viewport: {width: 1920, height: 1080}, deviceScaleFactor: 1});
   page.on('console', (m) => {
     if (m.type() === 'error' || m.type() === 'warning') console.error(`[navegador] ${m.text()}`);
@@ -63,7 +69,13 @@ async function openPage(url: string): Promise<{browser: Browser; page: Page; dur
   await page.waitForFunction(() => (window as any).__video?.ready || (window as any).__video?.error, null, {timeout: 120000});
   const err = await page.evaluate(() => (window as any).__video.error);
   if (err) throw new Error(`la app no arrancó:\n${err}`);
-  const [duration, audio]: [number, string] = await page.evaluate(() => [(window as any).__video.duration, (window as any).__video.audio]);
+  const [duration, audio, gpu]: [number, string, string] = await page.evaluate(() => {
+    const v = (window as any).__video;
+    const gl = (v.engine.renderer as any).getContext() as WebGL2RenderingContext;
+    const dbg = gl.getExtension('WEBGL_debug_renderer_info');
+    return [v.duration, v.audio, dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER)];
+  });
+  console.log(`WebGL: ${gpu}${/swiftshader|llvmpipe|software/i.test(gpu) ? '  (¡por CPU! prueba --angle o --headed)' : ''}`);
   return {browser, page, duration, audio};
 }
 

@@ -99,6 +99,37 @@ Para otro proyecto añade `?project=heroes-tonight` a la URL de la vista previa,
 En la vista previa: **espacio** reproduce o pausa, **←/→** salta ±1 s (±5 s con shift),
 **,** y **.** avanzan un fotograma, **h** oculta la barra. Con `?t=22` empiezas en un segundo concreto.
 
+### Renderizar en tu PC (con GPU)
+
+Todo el análisis (tempo, golpes, voz, letra alineada) ya está en el repositorio, en
+`src/songs/heroes-tonight/`. Para renderizar no hace falta Python, solo:
+
+1. [bun](https://bun.sh), [ffmpeg](https://ffmpeg.org) en el `PATH` y Google Chrome instalado.
+   En Windows: `winget install Oven-sh.Bun Gyan.FFmpeg Google.Chrome`.
+2. Clonar el repositorio, ir a la rama del video e instalar dependencias:
+   ```sh
+   git clone https://github.com/WilliamsDevos/docs.git
+   cd docs
+   git checkout claude/nifty-bell-wu43rk
+   cd video
+   bun install
+   ```
+3. Poner la canción en `video/public/audio/heroes-tonight.mp3` (de [ncs.io/HeroesTonight](https://ncs.io/HeroesTonight)).
+4. Renderizar:
+   ```sh
+   bun scripts/render.ts video --project heroes-tonight --out out/heroes-tonight.mp4
+   ```
+
+Al arrancar, el script imprime `WebGL: …` con la tarjeta que está usando. Si dice *SwiftShader*,
+*llvmpipe* o *software*, va por CPU: prueba `--angle d3d11` (Windows), `--angle metal` (Mac) o
+`--angle vulkan` (Linux), y si sigue igual, `--headed` (abre una ventana visible). Con GPU, cada
+fotograma tarda unos milisegundos en lugar de casi un segundo. El cuello de botella pasa a ser la
+codificación de x264: `--preset medium` lo acelera a costa de un archivo algo mayor.
+
+Opcional: `--samples 4` añade desenfoque de movimiento (promedia 4 sub-fotogramas; tarda 4 veces más).
+El grano de película hace que el archivo pese mucho a CRF 18. Para compartirlo, recomprímelo:
+`ffmpeg -i out/heroes-tonight.mp4 -c:v libx264 -crf 26 -tune grain -c:a copy out/heroes-tonight-share.mp4`.
+
 ### Renderizar
 
 ```sh
@@ -115,6 +146,8 @@ bun scripts/render.ts sheet --n 40 --cols 5                     # hoja de contac
 | `--crf 18` | Calidad de x264 (más bajo es mejor) |
 | `--from` / `--to` | Rango de tiempo en segundos |
 | `--only a,b` | Carga solo esas escenas del montaje |
+| `--angle backend` | Backend de GPU de Chrome: `d3d11`, `metal`, `vulkan` o `gl` |
+| `--headed` | Abre una ventana visible (algunos drivers no aceleran en modo oculto) |
 | `--swiftshader` | WebGL por CPU, para máquinas o contenedores sin GPU |
 | `--project id` | Proyecto a renderizar (por defecto `prompt-to-video`) |
 | `--noaudio` | Video sin banda sonora |
