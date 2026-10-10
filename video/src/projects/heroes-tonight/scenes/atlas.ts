@@ -149,8 +149,9 @@ export default class Atlas extends TypeScene {
       c.fill();
       if (morph < 0.5) {
         c.globalAlpha = 1 - morph * 2;
-        note(c, city.name, x + 12, y - 8, {color: lit ? fg : dim, size: 15});
-        note(c, fmt(city), x + 12, y + 12, {color: dim, size: 12});
+        const dec = lit ? 1 : prog(f.lt, 0.2 + i * 0.08, 0.9 + i * 0.08);
+        note(c, city.name, x + 12, y - 8, {color: lit ? fg : dim, size: 15, decode: dec, t});
+        note(c, fmt(city), x + 12, y + 12, {color: dim, size: 12, decode: dec, t, seed: i * 13});
         c.globalAlpha = 1;
       }
     });
@@ -171,7 +172,7 @@ export default class Atlas extends TypeScene {
     }
     if (t >= this.london) {
       const d = km(CITIES.london!, CITIES.taipei!) * kBig;
-      note(c, `${Math.round(d).toLocaleString('en')} km`, 1800, 1000, {align: 'right', color: fg});
+      note(c, `${Math.round(d).toLocaleString('en')} km`, 1800, 1000, {align: 'right', color: fg, size: 22});
     }
 
     // La letra: arriba a la izquierda, grande, karaoke palabra a palabra.

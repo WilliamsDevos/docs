@@ -12,6 +12,8 @@ export type PostParams = {
   fade: number; // 0..1 hacia negro
   zoom: number;
   shake: [number, number]; // px
+  rotate: number; // radianes, alrededor del centro
+  slice: number; // 0..1: glitch de franjas horizontales desplazadas
 };
 
 export const DEFAULT_POST: PostParams = {
@@ -25,6 +27,8 @@ export const DEFAULT_POST: PostParams = {
   fade: 0,
   zoom: 1,
   shake: [0, 0],
+  rotate: 0,
+  slice: 0,
 };
 
 const MIPS = 4;
@@ -65,7 +69,7 @@ export class Post {
   private final = new FSPass(
     /* glsl */ `
     uniform sampler2D src, b0, b1, b2, b3;
-    uniform float exposure, bloom, ca, grain, vignette, flash, fade, zoom, frame;
+    uniform float exposure, bloom, ca, grain, vignette, flash, fade, zoom, frame, rotate, slice;
     uniform vec2 shake;
     varying vec2 vUv;
     vec3 aces(vec3 x) {
@@ -73,7 +77,14 @@ export class Post {
     }
     void main() {
       vec2 res = vec2(${W}.0, ${H}.0);
-      vec2 uv = (vUv - 0.5) / zoom + 0.5 + shake / res;
+      vec2 q = (vUv - 0.5) * vec2(res.x / res.y, 1.0);
+      q = mat2(cos(rotate), sin(rotate), -sin(rotate), cos(rotate)) * q;
+      vec2 uv = q / vec2(res.x / res.y, 1.0) / zoom + 0.5 + shake / res;
+      if (slice > 0.0) {
+        float band = floor(uv.y * 27.0);
+        float on = step(0.62, hash12(vec2(band * 3.1, frame + 1.0)));
+        uv.x += (hash12(vec2(band, frame)) - 0.5) * 0.09 * slice * on;
+      }
       vec2 d = (uv - 0.5);
       vec2 off = d * dot(d, d) * ca * 4.0 / res;
       vec3 c;
@@ -111,6 +122,8 @@ export class Post {
       fade: {value: 0},
       zoom: {value: 1},
       frame: {value: 0},
+      rotate: {value: 0},
+      slice: {value: 0},
       shake: {value: new THREE.Vector2()},
     },
   );
@@ -149,6 +162,8 @@ export class Post {
     u.fade!.value = p.fade;
     u.zoom!.value = p.zoom;
     u.frame!.value = frame;
+    u.rotate!.value = p.rotate;
+    u.slice!.value = p.slice;
     (u.shake!.value as THREE.Vector2).set(p.shake[0], -p.shake[1]);
     this.final.render(renderer, null);
   }

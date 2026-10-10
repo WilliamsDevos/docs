@@ -4,7 +4,7 @@ import type * as THREE from 'three';
 import {Layer2D} from '../../engine/gl';
 import type {PostParams} from '../../engine/post';
 import {Scene} from '../../engine/scene';
-import {clamp} from '../../engine/util';
+import {clamp, hash, spring} from '../../engine/util';
 import type {Line, Word} from '../../songs/heroes-tonight/lyrics';
 
 export const C = {
@@ -52,14 +52,89 @@ export function fitSize(c: CanvasRenderingContext2D, text: string, maxW: number,
   return Math.min(max, (100 * maxW) / Math.max(1, w));
 }
 
-/** Anotación en mono, la voz de la máquina: pequeña y en ceniza. */
-export function note(c: CanvasRenderingContext2D, text: string, x: number, y: number, o: {size?: number; color?: string; align?: CanvasTextAlign} = {}) {
+const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&*+=/<>';
+
+/**
+ * Texto que se descifra: con k=0 todo son glifos al azar, con k=1 el texto real.
+ * Cada carácter se asienta en su turno, de izquierda a derecha; mientras tanto cambia cada fotograma.
+ */
+export function scramble(text: string, k: number, t: number, seed = 0) {
+  if (k >= 1) return text;
+  let out = '';
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i]!;
+    const settle = (i / Math.max(1, text.length)) * 0.6 + 0.4;
+    if (ch === ' ' || k >= settle) out += ch;
+    else out += GLYPHS[Math.floor(hash(seed * 31 + i * 7 + Math.floor(t * 30)) * GLYPHS.length)]!;
+  }
+  return out;
+}
+
+/** Anotación en mono, la voz de la máquina: pequeña y en ceniza. Con `decode` (0..1) se descifra. */
+export function note(
+  c: CanvasRenderingContext2D,
+  text: string,
+  x: number,
+  y: number,
+  o: {size?: number; color?: string; align?: CanvasTextAlign; decode?: number; t?: number; seed?: number} = {},
+) {
   setType(c, o.size ?? 17, {family: 'mono', tracking: 0.04});
   c.fillStyle = o.color ?? C.ash;
   c.textAlign = o.align ?? 'left';
-  c.fillText(text.toUpperCase(), x, y);
+  const shown = o.decode === undefined ? text : scramble(text, o.decode, o.t ?? 0, o.seed ?? x + y);
+  c.fillText(shown.toUpperCase(), x, y);
   c.textAlign = 'left';
 }
+
+/**
+ * Palabra letra a letra, centrada en (cx, baseline): las letras caen escalonadas con un resorte.
+ * `out` (0..1) la hace salir disparada hacia arriba, también letra a letra.
+ * Usa la fuente ya fijada en el contexto.
+ */
+export function slamLetters(
+  c: CanvasRenderingContext2D,
+  text: string,
+  cx: number,
+  baseline: number,
+  age: number,
+  o: {size: number; out?: number; stagger?: number; color: string},
+) {
+  const {size, out = 0, stagger = 0.022, color} = o;
+  const total = c.measureText(text).width;
+  const x0 = cx - total / 2;
+  c.fillStyle = color;
+  for (let i = 0; i < text.length; i++) {
+    const a = age - i * stagger;
+    if (a <= 0) continue;
+    const s = spring(a, 20, 0.55);
+    // La posición de cada letra sale de medir el prefijo, que conserva el kerning de la fuente.
+    const x = x0 + c.measureText(text.slice(0, i)).width;
+    const leave = clamp(out * 1.6 - (i / text.length) * 0.6);
+    const dy = (1 - s) * -size * 0.45 - leave * leave * size * 1.4;
+    c.globalAlpha = clamp(a * 14) * (1 - leave);
+    c.fillText(text[i]!, x, baseline + dy);
+  }
+  c.globalAlpha = 1;
+}
+
+/** Polvo: puntos que flotan despacio, deterministas, en tres planos de parallax. */
+export function dust(c: CanvasRenderingContext2D, t: number, n = 90, color = C.ash) {
+  c.fillStyle = color;
+  for (let i = 0; i < n; i++) {
+    const depth = 0.3 + (i % 3) * 0.35;
+    const x = (hash(i * 1.7) * 2200 + t * 12 * depth) % 2000 - 40;
+    const y = 1080 - ((hash(i * 3.3) * 1200 + t * 22 * depth) % 1200);
+    c.globalAlpha = 0.12 + depth * 0.25 * (0.6 + 0.4 * Math.sin(t * 1.3 + i));
+    c.beginPath();
+    c.arc(x, y, 0.8 + depth * 1.6, 0, Math.PI * 2);
+    c.fill();
+  }
+  c.globalAlpha = 1;
+}
+
+/** Deriva de cámara lenta, más un golpe de giro alterno en cada bombo. */
+export const cameraRoll = (t: number, kick = 0, beat = 0, amount = 0.012) =>
+  Math.sin(t * 0.31) * 0.003 + kick * amount * (Math.floor(beat) % 2 ? 1 : -1);
 
 /** Filete fino. */
 export function rule(c: CanvasRenderingContext2D, x0: number, y0: number, x1: number, y1: number, color = C.graphite, w = 1) {
@@ -75,8 +150,9 @@ export function rule(c: CanvasRenderingContext2D, x0: number, y0: number, x1: nu
 export const sung = (w: Word, t: number) => clamp((t - w.start) / 0.06);
 /** Opacidad de karaoke: lo pendiente al 35 %, lo cantado entero. */
 export const inkOf = (w: Word, t: number) => 0.35 + 0.65 * sung(w, t);
-/** Visibilidad de la frase: se anticipa 0.4 s. */
-export const lineIn = (l: Line, t: number) => clamp((t - (l.start - 0.4)) / 0.15);
+/** Visibilidad de la frase: se anticipa 0.15 s (lo justo para leerla, nunca por delante de la voz). */
+export const ANTICIPATION = 0.15;
+export const lineIn = (l: Line, t: number) => clamp((t - (l.start - ANTICIPATION)) / 0.1);
 
 /**
  * La cinta: una polilínea en rojo señal, dibujada hasta `k` (0..1 de su longitud),

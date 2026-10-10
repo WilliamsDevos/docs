@@ -1,8 +1,8 @@
 import type {Frame} from '../../../engine/scene';
-import {clamp, ease, prog, spring} from '../../../engine/util';
+import {clamp, ease, prog} from '../../../engine/util';
 import {LINES, type Line, type Word} from '../../../songs/heroes-tonight/lyrics';
 import {BAR, BEAT, barAt} from '../../../songs/heroes-tonight/music';
-import {C, TypeScene, fitSize, inkOf, note, ribbon, rule, setType} from '../kit';
+import {C, TypeScene, cameraRoll, dust, fitSize, inkOf, note, ribbon, rule, setType, slamLetters} from '../kit';
 
 export type HookVariant = 'clean' | 'stack' | 'quiet' | 'max';
 
@@ -26,15 +26,37 @@ export default class Hook extends TypeScene {
     this.lines = LINES.filter((l) => l.start >= this.ctx.start - 0.5 && l.start < this.ctx.end);
   }
 
-  /** Frase y palabra actuales (la última que ha empezado). */
-  private current(t: number): {line: Line; word: Word; index: number} | null {
-    let found: {line: Line; word: Word; index: number} | null = null;
+  /** Frase y palabra actuales (la última que ha empezado), y la anterior. */
+  private current(t: number): {line: Line; word: Word; index: number; prev: Word | null} | null {
+    let found: {line: Line; word: Word; index: number; prev: Word | null} | null = null;
+    let prev: Word | null = null;
     for (const line of this.lines) {
       line.words.forEach((word, index) => {
-        if (t >= word.start - 0.02) found = {line, word, index};
+        if (t >= word.start - 0.02) {
+          found = {line, word, index, prev};
+          prev = word;
+        }
       });
     }
     return found;
+  }
+
+  /** Tamaño, anchura, peso y línea base de una palabra del estribillo a pantalla completa. */
+  private style(c: CanvasRenderingContext2D, word: Word, age: number) {
+    const text = clean(word.w);
+    let width = text.length > 6 ? 75 : 125;
+    let weight = 900;
+    if (text === 'YEAH') {
+      const g = prog(age, 0, Math.max(0.6, word.end - word.start + 0.4), ease.outCubic);
+      width = 62.5 + g * 62.5;
+      weight = 300 + g * 600;
+    }
+    const size = fitSize(c, text, 1680, {weight, width}, 520);
+    let y = 540 + size * 0.36;
+    if (text === 'FLY') y -= prog(age, 0, 1.2, ease.outCubic) * 80;
+    if (text === 'ABOVE') y = 470;
+    if (text === 'SKY') y -= prog(age, 0.15, 1.6, ease.inCubic) * 900;
+    return {text, size, width, weight, y};
   }
 
   draw(c: CanvasRenderingContext2D, h: CanvasRenderingContext2D, f: Frame) {
@@ -61,7 +83,6 @@ export default class Hook extends TypeScene {
     const {line, word} = cur;
     const text = clean(word.w);
     const age = t - word.start;
-    const s = spring(age, 18, 0.6);
 
     // En "max", el fondo se llena de la palabra repetida en filas alternas.
     if (max) {
@@ -74,32 +95,45 @@ export default class Hook extends TypeScene {
       }
     }
 
-    // La palabra, a pantalla completa.
-    const special = text === 'SKY' || text === 'ABOVE' || text === 'FLY' || text === 'YEAH';
-    let width = text.length > 6 ? 75 : 125;
-    let weight = 900;
-    if (text === 'YEAH') {
-      const g = prog(age, 0, Math.max(0.6, word.end - word.start + 0.4), ease.outCubic);
-      width = 62.5 + g * 62.5;
-      weight = 300 + g * 600;
+    // La palabra anterior sale disparada hacia arriba mientras entra la nueva.
+    // La palabra anterior se acerca a cámara y se desvanece (sin cruzarse con las letras que caen).
+    if (cur.prev && age < 0.16) {
+      const ps = this.style(c, cur.prev, t - cur.prev.start);
+      const k = prog(age, 0, 0.16, ease.outCubic);
+      setType(c, ps.size, {weight: ps.weight, width: ps.width});
+      c.save();
+      c.globalAlpha = 1 - k;
+      c.translate(960, ps.y - ps.size * 0.36);
+      c.scale(1 + k * 0.45, 1 + k * 0.45);
+      c.fillStyle = fg;
+      c.textAlign = 'center';
+      c.fillText(ps.text, 0, ps.size * 0.36);
+      c.restore();
+      c.textAlign = 'left';
     }
-    const size = fitSize(c, text, 1680, {weight, width}, 520);
-    setType(c, size, {weight, width});
-    let y = 540 + size * 0.36;
-    if (text === 'FLY') y -= prog(age, 0, 1.2, ease.outCubic) * 80;
-    if (text === 'ABOVE') y = 470;
-    if (text === 'SKY') y -= prog(age, 0.15, 1.6, ease.inCubic) * 900;
-    const slam = 1 + (1 - Math.min(1, s)) * 0.18;
-    const target = max && barAt(word.start) % 1 < 0.26 ? h : c; // en "max", las palabras en el 1 del compás van en rojo
-    for (const ctx of target === h ? [c, h] : [c]) {
-      ctx.save();
-      ctx.translate(960, y - size * 0.36);
-      ctx.scale(slam, slam);
-      setType(ctx, size, {weight, width});
-      ctx.fillStyle = ctx === h ? C.signal : fg;
-      ctx.textAlign = 'center';
-      ctx.fillText(text, 0, size * 0.36);
-      ctx.restore();
+    // La palabra, a pantalla completa, letra a letra.
+    const st = this.style(c, word, age);
+    const {size, y} = st;
+    const special = text === 'SKY' || text === 'ABOVE' || text === 'FLY' || text === 'YEAH';
+    const red = max && barAt(word.start) % 1 < 0.26; // en "max", las palabras en el 1 del compás van en rojo
+    // Ecos en el bombo (estribillo máximo).
+    if (max && f.kick > 0.05) {
+      setType(c, size, {weight: st.weight, width: st.width});
+      c.fillStyle = fg;
+      c.textAlign = 'center';
+      for (let j = 1; j <= 2; j++) {
+        c.save();
+        c.globalAlpha = 0.16 * f.kick;
+        c.translate(960, y - size * 0.36);
+        c.scale(1 + j * 0.07 * f.kick, 1 + j * 0.07 * f.kick);
+        c.fillText(text, 0, size * 0.36);
+        c.restore();
+      }
+      c.textAlign = 'left';
+    }
+    for (const ctx of red ? [c, h] : [c]) {
+      setType(ctx, size, {weight: st.weight, width: st.width});
+      slamLetters(ctx, text, 960, y, age, {size, color: ctx === h ? C.signal : fg});
     }
     if (text === 'ABOVE') {
       // Horizonte: ABOVE queda por encima.
@@ -113,6 +147,9 @@ export default class Hook extends TypeScene {
     return {
       shake: [Math.sin(t * 97) * kickShake * Math.exp(-age / 0.1), Math.cos(t * 83) * kickShake * Math.exp(-age / 0.1)] as [number, number],
       ca: 0.5 + (max ? f.kick * 3 : 0),
+      rotate: cameraRoll(t, max ? f.kick : 0, f.beat),
+      zoom: 1 + (max ? f.kick * 0.015 : 0) + Math.exp(-age / 0.12) * 0.01,
+      slice: max ? f.clap * 0.9 : 0,
     };
   }
 
@@ -141,12 +178,18 @@ export default class Hook extends TypeScene {
     }
     note(c, `tensión ${(p * 100).toFixed(0).padStart(3, '0')} %`, 1800, 60, {align: 'right', color: strobe ? C.ash : C.graphite});
     const k = prog(p, 0, 1, ease.inCubic);
-    return {shake: [Math.sin(t * 90) * (1 + k * 10) * Math.max(f.kick, k * 0.5), Math.cos(t * 77) * k * 6] as [number, number], zoom: 1 + k * 0.03};
+    return {
+      shake: [Math.sin(t * 90) * (1 + k * 10) * Math.max(f.kick, k * 0.5), Math.cos(t * 77) * k * 6] as [number, number],
+      zoom: 1 + k * 0.03 + f.kick * 0.01,
+      rotate: cameraRoll(t, f.kick, f.beat, 0.004 + k * 0.01),
+      slice: strobe ? 0.5 : f.clap * k * 0.6,
+    };
   }
 
   private drawQuiet(c: CanvasRenderingContext2D, h: CanvasRenderingContext2D, f: Frame) {
     const {t, p} = f;
     this.plate(c, C.ink);
+    dust(c, t, 110);
     // Horizonte lento a lo largo de todo el estribillo.
     ribbon(h, [[120, 700], [1800, 700]], prog(p, 0, 1), 2, true);
     const altitude = Math.round(prog(p, 0, 1, ease.inOutCubic) * 10000);
@@ -168,6 +211,7 @@ export default class Hook extends TypeScene {
     }
     rule(c, 120, 1000, 1800, 1000, C.ink2);
     note(c, 'heroes tonight — ii', 120, 1030, {color: C.graphite});
+    return {zoom: 1 + prog(p, 0, 1) * 0.05, rotate: cameraRoll(t)};
   }
 
   /** La frase completa en pequeño (karaoke) para que siempre se pueda leer. */

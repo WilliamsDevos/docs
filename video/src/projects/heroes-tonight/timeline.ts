@@ -38,3 +38,8 @@ export const TIMELINE: Entry[] = [
   {id: 'hook4', start: cut.chorus3, end: cut.outro, scene: S(() => import('./scenes/hook'), 'max')},
   {id: 'outro', start: cut.outro, end: DURATION, scene: S(() => import('./scenes/outro'))},
 ];
+
+// Capa de transiciones: una cortinilla en cada corte (todas las entradas menos la primera).
+export const OVERLAYS: Entry[] = [
+  {id: 'cuts', start: 0, end: DURATION, scene: S(() => import('./scenes/cuts'), TIMELINE.slice(1).map((e) => e.start))},
+];

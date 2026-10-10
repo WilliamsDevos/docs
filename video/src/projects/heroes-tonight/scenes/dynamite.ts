@@ -24,6 +24,16 @@ export default class Dynamite extends TypeScene {
     const r = mulberry32(31);
     return 'EXPLODE'.split('').map((ch) => ({ch, vx: (r() - 0.5) * 1400, vy: -500 - r() * 900, spin: (r() - 0.5) * 12}));
   })();
+  // Metralla: glifos pequeños en todas direcciones.
+  debris = (() => {
+    const r = mulberry32(77);
+    const glyphs = 'BOOM!*#+×EXPLODE';
+    return Array.from({length: 70}, () => {
+      const a = r() * Math.PI * 2;
+      const v = 300 + r() * 1300;
+      return {ch: glyphs[Math.floor(r() * glyphs.length)]!, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 300, spin: (r() - 0.5) * 20, size: 18 + r() * 40, hot: r() < 0.3};
+    });
+  })();
 
   draw(c: CanvasRenderingContext2D, h: CanvasRenderingContext2D, f: Frame) {
     const {t} = f;
@@ -92,6 +102,34 @@ export default class Dynamite extends TypeScene {
         c.fillText(p.ch, -60, 70);
         c.restore();
       });
+      // Onda expansiva: tres filetes que se abren.
+      for (let i = 0; i < 3; i++) {
+        const q = a - i * 0.07;
+        if (q <= 0 || q > 0.9) continue;
+        h.strokeStyle = C.signal;
+        h.globalAlpha = 1 - q / 0.9;
+        h.lineWidth = 4 - i;
+        h.beginPath();
+        h.arc(ex, ey, 40 + q * 2200 * (1 - q * 0.4), 0, Math.PI * 2);
+        h.stroke();
+      }
+      h.globalAlpha = 1;
+      // Metralla tipográfica con gravedad y arrastre.
+      for (const d of this.debris) {
+        if (a > 2.2) break;
+        const drag = (1 - Math.exp(-a * 2.2)) / 2.2;
+        const px = ex + d.vx * drag;
+        const py = ey + d.vy * drag + 420 * a * a;
+        const ctx = d.hot ? h : c;
+        setType(ctx, d.size, {family: 'mono', weight: 700});
+        ctx.save();
+        ctx.translate(px, py);
+        ctx.rotate(d.spin * a);
+        ctx.globalAlpha = Math.max(0, 1 - a / 2.2);
+        ctx.fillStyle = d.hot ? C.signal : C.ash;
+        ctx.fillText(d.ch, 0, 0);
+        ctx.restore();
+      }
       const g = h.createRadialGradient(ex, ey, 0, ex, ey, 600);
       g.addColorStop(0, `rgba(255,240,230,${Math.exp(-a / 0.15)})`);
       g.addColorStop(0.2, `rgba(255,59,47,${0.8 * Math.exp(-a / 0.3)})`);
@@ -108,7 +146,14 @@ export default class Dynamite extends TypeScene {
         c.fillText(w.w.toUpperCase(), 160 + i * 330, 820 - rise * 520 - i * 30);
       });
       c.globalAlpha = 1;
-      return {shake: [Math.sin(t * 95) * 18 * Math.exp(-a / 0.25), Math.cos(t * 71) * 14 * Math.exp(-a / 0.25)] as [number, number], ca: 0.5 + 6 * Math.exp(-a / 0.3), flash: 0.9 * Math.exp(-a / 0.12)};
+      return {
+        shake: [Math.sin(t * 95) * 18 * Math.exp(-a / 0.25), Math.cos(t * 71) * 14 * Math.exp(-a / 0.25)] as [number, number],
+        ca: 0.5 + 6 * Math.exp(-a / 0.3),
+        flash: 0.9 * Math.exp(-a / 0.12),
+        slice: 1.2 * Math.exp(-a / 0.2),
+        rotate: 0.03 * Math.exp(-a / 0.3) * Math.sin(a * 30),
+        zoom: 1 + 0.06 * Math.exp(-a / 0.25),
+      };
     }
   }
 

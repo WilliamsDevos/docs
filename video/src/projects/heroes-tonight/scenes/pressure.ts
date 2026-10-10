@@ -2,7 +2,7 @@ import type {Frame} from '../../../engine/scene';
 import {clamp, ease, prog, spring} from '../../../engine/util';
 import {LINES, type Line} from '../../../songs/heroes-tonight/lyrics';
 import {KICKS, barAt} from '../../../songs/heroes-tonight/music';
-import {C, TypeScene, fitSize, note, setType} from '../kit';
+import {C, TypeScene, cameraRoll, fitSize, note, setType} from '../kit';
 
 const PHRASE = 'HEROES TONIGHT · ';
 const WIDTHS = [62.5, 87.5, 125, 75, 112.5, 100];
@@ -50,7 +50,13 @@ export default class Pressure extends TypeScene {
       if (hotRow) setType(h, 132, {weight: 900, width});
       ctx.fillStyle = hotRow ? C.signal : inv ? (r % 2 ? C.ink : '#B7B1A6') : r % 2 ? C.paper : C.graphite;
       ctx.globalAlpha = 1 - freeze * 0.85;
-      for (let x = off - unit; x < 1920; x += unit) ctx.fillText(PHRASE, x, y);
+      // Cada fila se aplasta con el bombo y rebota (alternando arriba/abajo).
+      const squash = 1 - f.kick * 0.28 * (r % 2 ? 1 : 0.6);
+      ctx.save();
+      ctx.translate(0, y);
+      ctx.scale(1 + f.kick * 0.04, squash);
+      for (let x = off - unit; x < 1920; x += unit) ctx.fillText(PHRASE, x, 0);
+      ctx.restore();
       ctx.globalAlpha = 1;
     }
 
@@ -81,6 +87,8 @@ export default class Pressure extends TypeScene {
       zoom: 1 + f.kick * 0.02,
       ca: 0.5 + f.kick * 3,
       flash: lt < 0.3 ? 0.8 * Math.exp(-lt / 0.12) : 0,
+      rotate: cameraRoll(t, f.kick, f.beat, 0.014),
+      slice: f.clap * 0.8 * (1 - freeze),
     };
   }
 
@@ -111,6 +119,12 @@ export default class Pressure extends TypeScene {
     }
     note(c, `× ${n}`, 1800, 140, {align: 'right'});
     const k = prog(p, 0, 1, ease.inCubic);
-    return {shake: [Math.sin(t * 90) * k * 8, Math.cos(t * 70) * k * 5] as [number, number], zoom: 1 + k * 0.04, exposure: 1 + clamp(k - 0.8) * 2};
+    return {
+      shake: [Math.sin(t * 90) * k * 8, Math.cos(t * 70) * k * 5] as [number, number],
+      zoom: 1 + k * 0.04,
+      exposure: 1 + clamp(k - 0.8) * 2,
+      rotate: cameraRoll(t, k * 0.6, f.beat, 0.02),
+      slice: k > 0.85 ? (k - 0.85) * 5 : 0,
+    };
   }
 }

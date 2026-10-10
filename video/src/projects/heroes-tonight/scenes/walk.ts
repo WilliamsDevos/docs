@@ -34,9 +34,17 @@ export default class Walk extends TypeScene {
       c.fillStyle = w.w.startsWith('alone') ? C.paper : C.ash;
       c.globalAlpha = lineIn(L0, t) * inkOf(w, t);
       c.fillText(w.w, x, y);
+      // Huella: dos marcas cortas bajo la palabra en cuanto se canta, que se van apagando.
+      const step = t - w.start;
+      if (step > 0) {
+        c.globalAlpha = Math.max(0.15, Math.exp(-step / 1.5)) * lineIn(L0, t);
+        rule(c, x, y + 22, x + 34, y + 22, C.paper, 2);
+        rule(c, x + 10, y + 30, x + 28, y + 30, C.graphite, 2);
+      }
     });
     c.globalAlpha = lineIn(L0, t) * sung(L0.words[L0.words.length - 1]!, t);
-    note(c, '0 personas · 03:12', 1660 - pan, 520);
+    const last = L0.words[L0.words.length - 1]!;
+    note(c, '0 personas · 03:12', 1660 - pan, 520, {decode: prog(t, last.start, last.start + 0.8), t});
     c.globalAlpha = 1;
   }
 
@@ -62,7 +70,7 @@ export default class Walk extends TypeScene {
     c.textAlign = 'center';
     c.fillText('SILHOUETTE', 960, 660 + (1 - Math.min(1, s)) * 80);
     c.textAlign = 'left';
-    note(c, 'fig. 1 — the only thing I can see', 120, 960, {color: C.graphite});
+    note(c, 'fig. 1 — the only thing I can see', 120, 960, {color: C.graphite, decode: prog(t, this.silhouette.start, this.silhouette.start + 0.7), t});
     ribbon(h, [[120, 720], [1800, 720]], prog(t, this.silhouette.start, this.silhouette.start + 0.8, ease.outCubic), 4, false);
     return {shake: [Math.sin(t * 90) * 6 * Math.exp(-(t - this.silhouette.start) / 0.12), 0] as [number, number]};
   }

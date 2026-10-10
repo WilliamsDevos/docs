@@ -2,1571 +2,2069 @@
  {
   "text": "I'm walking alone, the streets are empty",
   "estimated": false,
-  "start": 7.58,
-  "end": 11.66,
+  "start": 8.327,
+  "end": 11.699,
   "words": [
    {
     "w": "I'm",
-    "start": 7.58,
-    "end": 8.5,
-    "matched": true
+    "start": 8.327,
+    "end": 8.427,
+    "matched": true,
+    "whisper_start": 7.58,
+    "score": 0.052
    },
    {
     "w": "walking",
-    "start": 8.5,
-    "end": 8.98,
-    "matched": true
+    "start": 8.528,
+    "end": 9.15,
+    "matched": true,
+    "whisper_start": 8.5,
+    "score": 0.632
    },
    {
     "w": "alone,",
-    "start": 8.98,
-    "end": 9.74,
-    "matched": true
+    "start": 9.29,
+    "end": 10.013,
+    "matched": true,
+    "whisper_start": 8.98,
+    "score": 0.493
    },
    {
     "w": "the",
-    "start": 10.32,
-    "end": 10.32,
-    "matched": true
+    "start": 10.053,
+    "end": 10.154,
+    "matched": true,
+    "whisper_start": 10.32,
+    "score": 0.002
    },
    {
     "w": "streets",
-    "start": 10.32,
-    "end": 10.72,
-    "matched": true
+    "start": 10.254,
+    "end": 10.876,
+    "matched": true,
+    "whisper_start": 10.32,
+    "score": 0.948
    },
    {
     "w": "are",
-    "start": 10.72,
-    "end": 11.04,
-    "matched": true
+    "start": 10.936,
+    "end": 11.217,
+    "matched": true,
+    "whisper_start": 10.72,
+    "score": 0.489
    },
    {
     "w": "empty",
-    "start": 11.04,
-    "end": 11.66,
-    "matched": true
+    "start": 11.298,
+    "end": 11.699,
+    "matched": true,
+    "whisper_start": 11.04,
+    "score": 0.227
    }
-  ]
+  ],
+  "whisper_start": 7.58,
+  "whisper_end": 11.66
  },
  {
   "text": "The only thing I can see is my own silhouette",
   "estimated": false,
-  "start": 11.66,
-  "end": 15.08,
+  "start": 12.063,
+  "end": 15.179,
   "words": [
    {
     "w": "The",
-    "start": 11.66,
-    "end": 12.18,
-    "matched": true
+    "start": 12.063,
+    "end": 12.264,
+    "matched": true,
+    "whisper_start": 11.66,
+    "score": 0.111
    },
    {
     "w": "only",
-    "start": 12.18,
-    "end": 12.62,
-    "matched": true
+    "start": 12.385,
+    "end": 12.646,
+    "matched": true,
+    "whisper_start": 12.18,
+    "score": 0.102
    },
    {
     "w": "thing",
-    "start": 12.62,
-    "end": 12.9,
-    "matched": true
+    "start": 12.747,
+    "end": 13.008,
+    "matched": true,
+    "whisper_start": 12.62,
+    "score": 0.349
    },
    {
     "w": "I",
-    "start": 12.9,
-    "end": 13.24,
-    "matched": true
+    "start": 13.069,
+    "end": 13.089,
+    "matched": true,
+    "whisper_start": 12.9,
+    "score": 0.019
    },
    {
     "w": "can",
-    "start": 13.24,
-    "end": 13.52,
-    "matched": true
+    "start": 13.41,
+    "end": 13.531,
+    "matched": true,
+    "whisper_start": 13.24,
+    "score": 0.047
    },
    {
     "w": "see",
-    "start": 13.52,
-    "end": 13.78,
-    "matched": true
+    "start": 13.651,
+    "end": 13.832,
+    "matched": true,
+    "whisper_start": 13.52,
+    "score": 0.258
    },
    {
     "w": "is",
-    "start": 13.78,
-    "end": 13.88,
-    "matched": true
+    "start": 13.832,
+    "end": 13.872,
+    "matched": true,
+    "whisper_start": 13.78,
+    "score": 0.298
    },
    {
     "w": "my",
-    "start": 13.88,
-    "end": 14.06,
-    "matched": true
+    "start": 13.933,
+    "end": 14.013,
+    "matched": true,
+    "whisper_start": 13.88,
+    "score": 0.369
    },
    {
     "w": "own",
-    "start": 14.06,
-    "end": 14.44,
-    "matched": true
+    "start": 14.194,
+    "end": 14.415,
+    "matched": true,
+    "whisper_start": 14.06,
+    "score": 0.237
    },
    {
     "w": "silhouette",
-    "start": 14.44,
-    "end": 15.08,
-    "matched": true
+    "start": 14.596,
+    "end": 15.179,
+    "matched": true,
+    "whisper_start": 14.44,
+    "score": 0.248
    }
-  ]
+  ],
+  "whisper_start": 11.66,
+  "whisper_end": 15.08
  },
  {
   "text": "I'm getting stronger, step by step",
   "estimated": false,
-  "start": 15.08,
-  "end": 19.16,
+  "start": 15.403,
+  "end": 19.36,
   "words": [
    {
     "w": "I'm",
-    "start": 15.08,
-    "end": 15.96,
-    "matched": true
+    "start": 15.403,
+    "end": 15.865,
+    "matched": true,
+    "whisper_start": 15.08,
+    "score": 0.325
    },
    {
     "w": "getting",
-    "start": 15.96,
-    "end": 16.5,
-    "matched": true
+    "start": 16.005,
+    "end": 16.628,
+    "matched": true,
+    "whisper_start": 15.96,
+    "score": 0.265
    },
    {
     "w": "stronger,",
-    "start": 16.5,
-    "end": 17.22,
-    "matched": true
+    "start": 16.688,
+    "end": 17.331,
+    "matched": true,
+    "whisper_start": 16.5,
+    "score": 0.658
    },
    {
     "w": "step",
-    "start": 17.22,
-    "end": 18.14,
-    "matched": true
+    "start": 17.773,
+    "end": 18.255,
+    "matched": true,
+    "whisper_start": 17.22,
+    "score": 0.716
    },
    {
     "w": "by",
-    "start": 18.14,
-    "end": 18.58,
-    "matched": true
+    "start": 18.355,
+    "end": 18.677,
+    "matched": true,
+    "whisper_start": 18.14,
+    "score": 0.536
    },
    {
     "w": "step",
-    "start": 18.58,
-    "end": 19.16,
-    "matched": true
+    "start": 18.857,
+    "end": 19.36,
+    "matched": true,
+    "whisper_start": 18.58,
+    "score": 0.685
    }
-  ]
+  ],
+  "whisper_start": 15.08,
+  "whisper_end": 19.16
  },
  {
   "text": "The clock is ticking but there's no time for regrets",
   "estimated": false,
-  "start": 19.16,
-  "end": 22.76,
+  "start": 19.543,
+  "end": 22.939,
   "words": [
    {
     "w": "The",
-    "start": 19.16,
-    "end": 19.66,
-    "matched": true
+    "start": 19.543,
+    "end": 19.624,
+    "matched": true,
+    "whisper_start": 19.16,
+    "score": 0.065
    },
    {
     "w": "clock",
-    "start": 19.66,
-    "end": 20.14,
-    "matched": true
+    "start": 19.704,
+    "end": 20.247,
+    "matched": true,
+    "whisper_start": 19.66,
+    "score": 0.338
    },
    {
     "w": "is",
-    "start": 20.14,
-    "end": 20.4,
-    "matched": true
+    "start": 20.287,
+    "end": 20.387,
+    "matched": true,
+    "whisper_start": 20.14,
+    "score": 0.575
    },
    {
     "w": "ticking",
-    "start": 20.4,
-    "end": 20.96,
-    "matched": true
+    "start": 20.488,
+    "end": 21.131,
+    "matched": true,
+    "whisper_start": 20.4,
+    "score": 0.435
    },
    {
     "w": "but",
-    "start": 20.96,
-    "end": 21.34,
-    "matched": true
+    "start": 21.171,
+    "end": 21.332,
+    "matched": true,
+    "whisper_start": 20.96,
+    "score": 0.337
    },
    {
     "w": "there's",
-    "start": 21.34,
-    "end": 21.58,
-    "matched": true
+    "start": 21.352,
+    "end": 21.573,
+    "matched": true,
+    "whisper_start": 21.34,
+    "score": 0.177
    },
    {
     "w": "no",
-    "start": 21.58,
-    "end": 21.76,
-    "matched": true
+    "start": 21.653,
+    "end": 21.734,
+    "matched": true,
+    "whisper_start": 21.58,
+    "score": 0.887
    },
    {
     "w": "time",
-    "start": 21.76,
-    "end": 22.04,
-    "matched": true
+    "start": 21.854,
+    "end": 22.095,
+    "matched": true,
+    "whisper_start": 21.76,
+    "score": 0.371
    },
    {
     "w": "for",
-    "start": 22.04,
-    "end": 22.3,
-    "matched": true
+    "start": 22.095,
+    "end": 22.236,
+    "matched": true,
+    "whisper_start": 22.04,
+    "score": 0.499
    },
    {
     "w": "regrets",
-    "start": 22.3,
-    "end": 22.76,
-    "matched": true
+    "start": 22.256,
+    "end": 22.939,
+    "matched": true,
+    "whisper_start": 22.3,
+    "score": 0.036
    }
-  ]
+  ],
+  "whisper_start": 19.16,
+  "whisper_end": 22.76
  },
  {
   "text": "I've been flying from town to town",
   "estimated": false,
-  "start": 22.76,
-  "end": 26.46,
+  "start": 23.706,
+  "end": 26.519,
   "words": [
    {
     "w": "I've",
-    "start": 22.76,
-    "end": 24.02,
-    "matched": true
+    "start": 23.706,
+    "end": 23.947,
+    "matched": true,
+    "whisper_start": 22.76,
+    "score": 0.004
    },
    {
     "w": "been",
-    "start": 24.02,
-    "end": 24.24,
-    "matched": true
+    "start": 23.947,
+    "end": 24.228,
+    "matched": true,
+    "whisper_start": 24.02,
+    "score": 0.366
    },
    {
     "w": "flying",
-    "start": 24.24,
-    "end": 24.84,
-    "matched": true
+    "start": 24.369,
+    "end": 24.992,
+    "matched": true,
+    "whisper_start": 24.24,
+    "score": 0.383
    },
    {
     "w": "from",
-    "start": 24.84,
-    "end": 25.26,
-    "matched": true
+    "start": 25.072,
+    "end": 25.273,
+    "matched": true,
+    "whisper_start": 24.84,
+    "score": 0.902
    },
    {
     "w": "town",
-    "start": 25.26,
-    "end": 25.68,
-    "matched": true
+    "start": 25.394,
+    "end": 25.755,
+    "matched": true,
+    "whisper_start": 25.26,
+    "score": 0.341
    },
    {
     "w": "to",
-    "start": 25.68,
-    "end": 26.0,
-    "matched": true
+    "start": 25.796,
+    "end": 26.057,
+    "matched": true,
+    "whisper_start": 25.68,
+    "score": 0.067
    },
    {
     "w": "town",
-    "start": 26.0,
-    "end": 26.46,
-    "matched": true
+    "start": 26.077,
+    "end": 26.519,
+    "matched": true,
+    "whisper_start": 26.0,
+    "score": 0.272
    }
-  ]
+  ],
+  "whisper_start": 22.76,
+  "whisper_end": 26.46
  },
  {
   "text": "From London to Taiwan",
   "estimated": false,
-  "start": 26.46,
-  "end": 29.8,
+  "start": 27.205,
+  "end": 29.979,
   "words": [
    {
     "w": "From",
-    "start": 26.46,
-    "end": 27.6,
-    "matched": true
+    "start": 27.205,
+    "end": 27.909,
+    "matched": true,
+    "whisper_start": 26.46,
+    "score": 0.409
    },
    {
     "w": "London",
-    "start": 27.6,
-    "end": 28.64,
-    "matched": true
+    "start": 28.13,
+    "end": 28.793,
+    "matched": true,
+    "whisper_start": 27.6,
+    "score": 0.353
    },
    {
     "w": "to",
-    "start": 28.64,
-    "end": 29.2,
-    "matched": true
+    "start": 28.894,
+    "end": 29.014,
+    "matched": true,
+    "whisper_start": 28.64,
+    "score": 0.194
    },
    {
     "w": "Taiwan",
-    "start": 29.2,
-    "end": 29.8,
-    "matched": true
+    "start": 29.557,
+    "end": 29.979,
+    "matched": true,
+    "whisper_start": 29.2,
+    "score": 0.297
    }
-  ]
+  ],
+  "whisper_start": 26.46,
+  "whisper_end": 29.8
  },
  {
   "text": "I've been all around the globe",
   "estimated": false,
-  "start": 29.8,
-  "end": 34.08,
+  "start": 29.781,
+  "end": 34.039,
   "words": [
    {
     "w": "I've",
-    "start": 29.8,
-    "end": 31.26,
-    "matched": true
+    "start": 29.781,
+    "end": 29.942,
+    "matched": true,
+    "whisper_start": 29.8,
+    "score": 0.41
    },
    {
     "w": "been",
-    "start": 31.26,
-    "end": 31.62,
-    "matched": true
+    "start": 31.247,
+    "end": 31.609,
+    "matched": true,
+    "whisper_start": 31.26,
+    "score": 0.708
    },
    {
     "w": "all",
-    "start": 31.62,
-    "end": 32.3,
-    "matched": true
+    "start": 31.99,
+    "end": 32.372,
+    "matched": true,
+    "whisper_start": 31.62,
+    "score": 0.568
    },
    {
     "w": "around",
-    "start": 32.3,
-    "end": 33.06,
-    "matched": true
+    "start": 32.432,
+    "end": 33.255,
+    "matched": true,
+    "whisper_start": 32.3,
+    "score": 0.627
    },
    {
     "w": "the",
-    "start": 33.06,
-    "end": 33.46,
-    "matched": true
+    "start": 33.356,
+    "end": 33.436,
+    "matched": true,
+    "whisper_start": 33.06,
+    "score": 0.196
    },
    {
     "w": "globe",
-    "start": 33.46,
-    "end": 34.08,
-    "matched": true
+    "start": 33.557,
+    "end": 34.039,
+    "matched": true,
+    "whisper_start": 33.46,
+    "score": 0.34
    }
-  ]
+  ],
+  "whisper_start": 29.8,
+  "whisper_end": 34.08
  },
  {
   "text": "Trying to protect your soul",
   "estimated": false,
-  "start": 34.08,
-  "end": 37.46,
+  "start": 34.463,
+  "end": 37.438,
   "words": [
    {
     "w": "Trying",
-    "start": 34.08,
-    "end": 34.76,
-    "matched": true
+    "start": 34.463,
+    "end": 35.127,
+    "matched": true,
+    "whisper_start": 34.08,
+    "score": 0.353
    },
    {
     "w": "to",
-    "start": 34.76,
-    "end": 35.36,
-    "matched": true
+    "start": 35.207,
+    "end": 35.328,
+    "matched": true,
+    "whisper_start": 34.76,
+    "score": 0.307
    },
    {
     "w": "protect",
-    "start": 35.36,
-    "end": 35.88,
-    "matched": true
+    "start": 35.428,
+    "end": 35.81,
+    "matched": true,
+    "whisper_start": 35.36,
+    "score": 0.119
    },
    {
     "w": "your",
-    "start": 35.88,
-    "end": 36.64,
-    "matched": true
+    "start": 36.393,
+    "end": 36.634,
+    "matched": true,
+    "whisper_start": 35.88,
+    "score": 0.476
    },
    {
     "w": "soul",
-    "start": 36.64,
-    "end": 37.46,
-    "matched": true
+    "start": 37.077,
+    "end": 37.438,
+    "matched": true,
+    "whisper_start": 36.64,
+    "score": 0.483
    }
-  ]
+  ],
+  "whisper_start": 34.08,
+  "whisper_end": 37.46
  },
  {
   "text": "We are heroes tonight",
   "estimated": false,
-  "start": 37.46,
-  "end": 41.26,
+  "start": 38.506,
+  "end": 41.54,
   "words": [
    {
     "w": "We",
-    "start": 37.46,
-    "end": 38.66,
-    "matched": true
+    "start": 38.506,
+    "end": 38.627,
+    "matched": true,
+    "whisper_start": 37.46,
+    "score": 0.094
    },
    {
     "w": "are",
-    "start": 38.66,
-    "end": 39.24,
-    "matched": true
+    "start": 38.848,
+    "end": 39.39,
+    "matched": true,
+    "whisper_start": 38.66,
+    "score": 0.202
    },
    {
     "w": "heroes",
-    "start": 39.24,
-    "end": 40.62,
-    "matched": true
+    "start": 39.39,
+    "end": 40.877,
+    "matched": true,
+    "whisper_start": 39.24,
+    "score": 0.188
    },
    {
     "w": "tonight",
-    "start": 40.62,
-    "end": 41.26,
-    "matched": true
+    "start": 40.897,
+    "end": 41.54,
+    "matched": true,
+    "whisper_start": 40.62,
+    "score": 0.103
    }
-  ]
+  ],
+  "whisper_start": 37.46,
+  "whisper_end": 41.26
  },
  {
   "text": "We will fly above the sky",
   "estimated": false,
-  "start": 41.26,
-  "end": 45.22,
+  "start": 42.246,
+  "end": 45.339,
   "words": [
    {
     "w": "We",
-    "start": 41.26,
-    "end": 42.42,
-    "matched": true
+    "start": 42.246,
+    "end": 42.406,
+    "matched": true,
+    "whisper_start": 41.26,
+    "score": 0.45
    },
    {
     "w": "will",
-    "start": 42.42,
-    "end": 42.8,
-    "matched": true
+    "start": 42.547,
+    "end": 42.788,
+    "matched": true,
+    "whisper_start": 42.42,
+    "score": 0.174
    },
    {
     "w": "fly",
-    "start": 42.8,
-    "end": 43.34,
-    "matched": true
+    "start": 42.949,
+    "end": 43.391,
+    "matched": true,
+    "whisper_start": 42.8,
+    "score": 0.251
    },
    {
     "w": "above",
-    "start": 43.34,
-    "end": 44.0,
-    "matched": true
+    "start": 43.471,
+    "end": 44.375,
+    "matched": true,
+    "whisper_start": 43.34,
+    "score": 0.288
    },
    {
     "w": "the",
-    "start": 44.0,
-    "end": 44.62,
-    "matched": true
+    "start": 44.395,
+    "end": 44.516,
+    "matched": true,
+    "whisper_start": 44.0,
+    "score": 0.35
    },
    {
     "w": "sky",
-    "start": 44.62,
-    "end": 45.22,
-    "matched": true
+    "start": 44.817,
+    "end": 45.339,
+    "matched": true,
+    "whisper_start": 44.62,
+    "score": 0.414
    }
-  ]
+  ],
+  "whisper_start": 41.26,
+  "whisper_end": 45.22
  },
  {
   "text": "We are heroes tonight, yeah",
   "estimated": false,
-  "start": 45.22,
-  "end": 49.59,
+  "start": 46.002,
+  "end": 49.828,
   "words": [
    {
     "w": "We",
-    "start": 45.22,
-    "end": 46.16,
-    "matched": true
+    "start": 46.002,
+    "end": 46.122,
+    "matched": true,
+    "whisper_start": 45.22,
+    "score": 0.186
    },
    {
     "w": "are",
-    "start": 46.16,
-    "end": 46.74,
-    "matched": true
+    "start": 46.342,
+    "end": 47.064,
+    "matched": true,
+    "whisper_start": 46.16,
+    "score": 0.166
    },
    {
     "w": "heroes",
-    "start": 46.74,
-    "end": 48.14,
-    "matched": true
+    "start": 47.364,
+    "end": 48.366,
+    "matched": true,
+    "whisper_start": 46.74,
+    "score": 0.155
    },
    {
     "w": "tonight,",
-    "start": 48.14,
-    "end": 49.34,
-    "matched": true
+    "start": 48.386,
+    "end": 49.287,
+    "matched": true,
+    "whisper_start": 48.14,
+    "score": 0.012
    },
    {
     "w": "yeah",
-    "start": 49.34,
-    "end": 49.59,
-    "matched": false
+    "start": 49.307,
+    "end": 49.828,
+    "matched": false,
+    "whisper_start": 49.34,
+    "score": 0.192
    }
-  ]
+  ],
+  "whisper_start": 45.22,
+  "whisper_end": 49.59
  },
  {
   "text": "We are heroes tonight",
   "estimated": false,
-  "start": 51.42,
-  "end": 56.3,
+  "start": 53.49,
+  "end": 56.5,
   "words": [
    {
     "w": "We",
-    "start": 51.42,
-    "end": 52.78,
-    "matched": true
+    "start": 53.49,
+    "end": 53.611,
+    "matched": true,
+    "whisper_start": 51.42,
+    "score": 0.064
    },
    {
     "w": "are",
-    "start": 52.78,
-    "end": 54.14,
-    "matched": true
+    "start": 53.831,
+    "end": 54.333,
+    "matched": true,
+    "whisper_start": 52.78,
+    "score": 0.156
    },
    {
     "w": "heroes",
-    "start": 54.14,
-    "end": 55.42,
-    "matched": true
+    "start": 54.353,
+    "end": 55.878,
+    "matched": true,
+    "whisper_start": 54.14,
+    "score": 0.117
    },
    {
     "w": "tonight",
-    "start": 55.42,
-    "end": 56.3,
-    "matched": true
+    "start": 55.898,
+    "end": 56.5,
+    "matched": true,
+    "whisper_start": 55.42,
+    "score": 0.063
    }
-  ]
+  ],
+  "whisper_start": 51.42,
+  "whisper_end": 56.3
  },
  {
   "text": "We will fly above the sky",
   "estimated": false,
-  "start": 56.3,
-  "end": 60.22,
+  "start": 57.286,
+  "end": 59.917,
   "words": [
    {
     "w": "We",
-    "start": 56.3,
-    "end": 57.4,
-    "matched": true
+    "start": 57.286,
+    "end": 57.386,
+    "matched": true,
+    "whisper_start": 56.3,
+    "score": 0.425
    },
    {
     "w": "will",
-    "start": 57.4,
-    "end": 57.78,
-    "matched": true
+    "start": 57.527,
+    "end": 57.808,
+    "matched": true,
+    "whisper_start": 57.4,
+    "score": 0.181
    },
    {
     "w": "fly",
-    "start": 57.78,
-    "end": 58.36,
-    "matched": true
+    "start": 57.929,
+    "end": 58.37,
+    "matched": true,
+    "whisper_start": 57.78,
+    "score": 0.088
    },
    {
     "w": "above",
-    "start": 58.36,
-    "end": 58.98,
-    "matched": true
+    "start": 58.451,
+    "end": 59.355,
+    "matched": true,
+    "whisper_start": 58.36,
+    "score": 0.178
    },
    {
     "w": "the",
-    "start": 58.98,
-    "end": 59.62,
-    "matched": true
+    "start": 59.375,
+    "end": 59.495,
+    "matched": true,
+    "whisper_start": 58.98,
+    "score": 0.218
    },
    {
     "w": "sky",
-    "start": 59.62,
-    "end": 60.22,
-    "matched": true
+    "start": 59.797,
+    "end": 59.917,
+    "matched": true,
+    "whisper_start": 59.62,
+    "score": 0.205
    }
-  ]
+  ],
+  "whisper_start": 56.3,
+  "whisper_end": 60.22
  },
  {
   "text": "We are heroes tonight, yeah",
   "estimated": false,
-  "start": 60.22,
-  "end": 67.38,
+  "start": 60.982,
+  "end": 64.511,
   "words": [
    {
     "w": "We",
-    "start": 60.22,
-    "end": 61.18,
-    "matched": true
+    "start": 60.982,
+    "end": 61.103,
+    "matched": true,
+    "whisper_start": 60.22,
+    "score": 0.093
    },
    {
     "w": "are",
-    "start": 61.18,
-    "end": 61.58,
-    "matched": true
+    "start": 61.343,
+    "end": 62.025,
+    "matched": true,
+    "whisper_start": 61.18,
+    "score": 0.231
    },
    {
     "w": "heroes",
-    "start": 61.58,
-    "end": 62.9,
-    "matched": true
+    "start": 62.386,
+    "end": 63.268,
+    "matched": true,
+    "whisper_start": 61.58,
+    "score": 0.19
    },
    {
     "w": "tonight,",
-    "start": 62.9,
-    "end": 64.36,
-    "matched": true
+    "start": 63.348,
+    "end": 64.29,
+    "matched": true,
+    "whisper_start": 62.9,
+    "score": 0.155
    },
    {
     "w": "yeah",
-    "start": 67.1,
-    "end": 67.38,
-    "matched": true
+    "start": 64.29,
+    "end": 64.511,
+    "matched": true,
+    "whisper_start": 67.1,
+    "score": 0.162
    }
-  ]
+  ],
+  "whisper_start": 60.22,
+  "whisper_end": 67.38
  },
  {
   "text": "Night, yeah",
   "estimated": false,
-  "start": 79.82,
-  "end": 82.38,
+  "start": 79.284,
+  "end": 81.093,
   "words": [
    {
     "w": "Night,",
-    "start": 79.82,
-    "end": 81.1,
-    "matched": true
+    "start": 79.284,
+    "end": 79.987,
+    "matched": true,
+    "whisper_start": 79.82,
+    "score": 0.053
    },
    {
     "w": "yeah",
-    "start": 81.1,
-    "end": 82.38,
-    "matched": true
+    "start": 80.007,
+    "end": 81.093,
+    "matched": true,
+    "whisper_start": 81.1,
+    "score": 0.108
    }
-  ]
+  ],
+  "whisper_start": 79.82,
+  "whisper_end": 82.38
  },
  {
   "text": "I'm feeling like a dynamite",
   "estimated": false,
-  "start": 82.08,
-  "end": 86.7,
+  "start": 83.566,
+  "end": 86.598,
   "words": [
    {
     "w": "I'm",
-    "start": 82.08,
-    "end": 82.33,
-    "matched": false
+    "start": 83.566,
+    "end": 83.747,
+    "matched": false,
+    "whisper_start": 82.08,
+    "score": 0.285
    },
    {
     "w": "feeling",
-    "start": 82.38,
-    "end": 83.74,
-    "matched": true
+    "start": 83.747,
+    "end": 84.209,
+    "matched": true,
+    "whisper_start": 82.38,
+    "score": 0.247
    },
    {
     "w": "like",
-    "start": 83.74,
-    "end": 84.2,
-    "matched": true
+    "start": 84.229,
+    "end": 84.47,
+    "matched": true,
+    "whisper_start": 83.74,
+    "score": 0.013
    },
    {
     "w": "a",
-    "start": 84.2,
-    "end": 84.44,
-    "matched": true
+    "start": 84.55,
+    "end": 84.57,
+    "matched": true,
+    "whisper_start": 84.2,
+    "score": 0.942
    },
    {
     "w": "dynamite",
-    "start": 84.44,
-    "end": 86.7,
-    "matched": true
+    "start": 84.871,
+    "end": 86.598,
+    "matched": true,
+    "whisper_start": 84.44,
+    "score": 0.391
    }
-  ]
+  ],
+  "whisper_start": 82.08,
+  "whisper_end": 86.7
  },
  {
   "text": "Ready to explode right up in the sky",
   "estimated": false,
-  "start": 86.7,
-  "end": 90.14,
+  "start": 87.204,
+  "end": 90.259,
   "words": [
    {
     "w": "Ready",
-    "start": 86.7,
-    "end": 87.5,
-    "matched": true
+    "start": 87.204,
+    "end": 87.566,
+    "matched": true,
+    "whisper_start": 86.7,
+    "score": 0.855
    },
    {
     "w": "to",
-    "start": 87.5,
-    "end": 87.88,
-    "matched": true
+    "start": 87.686,
+    "end": 87.847,
+    "matched": true,
+    "whisper_start": 87.5,
+    "score": 0.651
    },
    {
     "w": "explode",
-    "start": 87.88,
-    "end": 88.4,
-    "matched": true
+    "start": 87.948,
+    "end": 88.43,
+    "matched": true,
+    "whisper_start": 87.88,
+    "score": 0.134
    },
    {
     "w": "right",
-    "start": 88.4,
-    "end": 89.0,
-    "matched": true
+    "start": 88.651,
+    "end": 89.154,
+    "matched": true,
+    "whisper_start": 88.4,
+    "score": 0.364
    },
    {
     "w": "up",
-    "start": 89.0,
-    "end": 89.36,
-    "matched": true
+    "start": 89.234,
+    "end": 89.355,
+    "matched": true,
+    "whisper_start": 89.0,
+    "score": 0.41
    },
    {
     "w": "in",
-    "start": 89.36,
-    "end": 89.56,
-    "matched": true
+    "start": 89.415,
+    "end": 89.515,
+    "matched": true,
+    "whisper_start": 89.36,
+    "score": 0.497
    },
    {
     "w": "the",
-    "start": 89.56,
-    "end": 89.74,
-    "matched": true
+    "start": 89.515,
+    "end": 89.596,
+    "matched": true,
+    "whisper_start": 89.56,
+    "score": 0.098
    },
    {
     "w": "sky",
-    "start": 89.74,
-    "end": 90.14,
-    "matched": true
+    "start": 89.757,
+    "end": 90.259,
+    "matched": true,
+    "whisper_start": 89.74,
+    "score": 0.895
    }
-  ]
+  ],
+  "whisper_start": 86.7,
+  "whisper_end": 90.14
  },
  {
   "text": "I need you to listen, I need you to hear",
   "estimated": false,
-  "start": 90.14,
-  "end": 94.18,
+  "start": 90.242,
+  "end": 94.44,
   "words": [
    {
     "w": "I",
-    "start": 90.14,
-    "end": 90.86,
-    "matched": true
+    "start": 90.242,
+    "end": 90.262,
+    "matched": true,
+    "whisper_start": 90.14,
+    "score": 0.725
    },
    {
     "w": "need",
-    "start": 90.86,
-    "end": 91.36,
-    "matched": true
+    "start": 91.005,
+    "end": 91.407,
+    "matched": true,
+    "whisper_start": 90.86,
+    "score": 0.482
    },
    {
     "w": "you",
-    "start": 91.36,
-    "end": 91.54,
-    "matched": true
+    "start": 91.447,
+    "end": 91.507,
+    "matched": true,
+    "whisper_start": 91.36,
+    "score": 0.57
    },
    {
     "w": "to",
-    "start": 91.54,
-    "end": 91.82,
-    "matched": true
+    "start": 91.668,
+    "end": 91.808,
+    "matched": true,
+    "whisper_start": 91.54,
+    "score": 0.066
    },
    {
     "w": "listen,",
-    "start": 91.82,
-    "end": 92.34,
-    "matched": true
+    "start": 91.949,
+    "end": 92.632,
+    "matched": true,
+    "whisper_start": 91.82,
+    "score": 0.678
    },
    {
     "w": "I",
-    "start": 92.7,
-    "end": 92.78,
-    "matched": true
+    "start": 92.692,
+    "end": 92.712,
+    "matched": true,
+    "whisper_start": 92.7,
+    "score": 0.0
    },
    {
     "w": "need",
-    "start": 92.78,
-    "end": 93.18,
-    "matched": true
+    "start": 92.873,
+    "end": 93.255,
+    "matched": true,
+    "whisper_start": 92.78,
+    "score": 0.545
    },
    {
     "w": "you",
-    "start": 93.18,
-    "end": 93.4,
-    "matched": true
+    "start": 93.315,
+    "end": 93.375,
+    "matched": true,
+    "whisper_start": 93.18,
+    "score": 0.578
    },
    {
     "w": "to",
-    "start": 93.4,
-    "end": 93.7,
-    "matched": true
+    "start": 93.516,
+    "end": 93.656,
+    "matched": true,
+    "whisper_start": 93.4,
+    "score": 0.053
    },
    {
     "w": "hear",
-    "start": 93.7,
-    "end": 94.18,
-    "matched": true
+    "start": 93.817,
+    "end": 94.44,
+    "matched": true,
+    "whisper_start": 93.7,
+    "score": 0.252
    }
-  ]
+  ],
+  "whisper_start": 90.14,
+  "whisper_end": 94.18
  },
  {
   "text": "And don't show any fear",
   "estimated": false,
-  "start": 94.18,
-  "end": 96.35,
+  "start": 94.843,
+  "end": 97.53,
   "words": [
    {
     "w": "And",
-    "start": 94.18,
-    "end": 95.22,
-    "matched": true
+    "start": 94.843,
+    "end": 95.244,
+    "matched": true,
+    "whisper_start": 94.18,
+    "score": 0.562
    },
    {
     "w": "don't",
-    "start": 95.22,
-    "end": 95.48,
-    "matched": true
+    "start": 95.284,
+    "end": 95.424,
+    "matched": true,
+    "whisper_start": 95.22,
+    "score": 0.056
    },
    {
     "w": "show",
-    "start": 95.48,
-    "end": 95.8,
-    "matched": true
+    "start": 95.464,
+    "end": 95.845,
+    "matched": true,
+    "whisper_start": 95.48,
+    "score": 0.209
    },
    {
     "w": "any",
-    "start": 95.8,
-    "end": 96.05,
-    "matched": false
+    "start": 96.708,
+    "end": 97.189,
+    "matched": false,
+    "whisper_start": 95.8,
+    "score": 0.315
    },
    {
     "w": "fear",
-    "start": 96.1,
-    "end": 96.35,
-    "matched": false
+    "start": 97.309,
+    "end": 97.53,
+    "matched": false,
+    "whisper_start": 96.1,
+    "score": 0.382
    }
-  ]
+  ],
+  "whisper_start": 94.18,
+  "whisper_end": 96.35
  },
  {
   "text": "I've been flying from town to town",
   "estimated": false,
-  "start": 97.32,
-  "end": 101.46,
+  "start": 97.445,
+  "end": 101.539,
   "words": [
    {
     "w": "I've",
-    "start": 97.32,
-    "end": 99.04,
-    "matched": true
+    "start": 97.445,
+    "end": 98.569,
+    "matched": true,
+    "whisper_start": 97.32,
+    "score": 0.043
    },
    {
     "w": "been",
-    "start": 99.04,
-    "end": 99.2,
-    "matched": true
+    "start": 98.95,
+    "end": 99.251,
+    "matched": true,
+    "whisper_start": 99.04,
+    "score": 0.302
    },
    {
     "w": "flying",
-    "start": 99.2,
-    "end": 99.82,
-    "matched": true
+    "start": 99.372,
+    "end": 99.994,
+    "matched": true,
+    "whisper_start": 99.2,
+    "score": 0.439
    },
    {
     "w": "from",
-    "start": 99.82,
-    "end": 100.26,
-    "matched": true
+    "start": 100.074,
+    "end": 100.275,
+    "matched": true,
+    "whisper_start": 99.82,
+    "score": 0.951
    },
    {
     "w": "town",
-    "start": 100.26,
-    "end": 100.68,
-    "matched": true
+    "start": 100.375,
+    "end": 100.777,
+    "matched": true,
+    "whisper_start": 100.26,
+    "score": 0.142
    },
    {
     "w": "to",
-    "start": 100.68,
-    "end": 101.0,
-    "matched": true
+    "start": 100.817,
+    "end": 100.877,
+    "matched": true,
+    "whisper_start": 100.68,
+    "score": 0.094
    },
    {
     "w": "town",
-    "start": 101.0,
-    "end": 101.46,
-    "matched": true
+    "start": 101.037,
+    "end": 101.539,
+    "matched": true,
+    "whisper_start": 101.0,
+    "score": 0.267
    }
-  ]
+  ],
+  "whisper_start": 97.32,
+  "whisper_end": 101.46
  },
  {
   "text": "From London to Taiwan",
   "estimated": false,
-  "start": 101.46,
-  "end": 104.53,
+  "start": 102.205,
+  "end": 105.119,
   "words": [
    {
     "w": "From",
-    "start": 101.46,
-    "end": 102.88,
-    "matched": true
+    "start": 102.205,
+    "end": 102.909,
+    "matched": true,
+    "whisper_start": 101.46,
+    "score": 0.528
    },
    {
     "w": "London",
-    "start": 102.88,
-    "end": 103.62,
-    "matched": true
+    "start": 103.13,
+    "end": 103.813,
+    "matched": true,
+    "whisper_start": 102.88,
+    "score": 0.33
    },
    {
     "w": "to",
-    "start": 103.62,
-    "end": 104.28,
-    "matched": true
+    "start": 103.893,
+    "end": 104.034,
+    "matched": true,
+    "whisper_start": 103.62,
+    "score": 0.109
    },
    {
     "w": "Taiwan",
-    "start": 104.28,
-    "end": 104.53,
-    "matched": false
+    "start": 104.537,
+    "end": 105.119,
+    "matched": false,
+    "whisper_start": 104.28,
+    "score": 0.393
    }
-  ]
+  ],
+  "whisper_start": 101.46,
+  "whisper_end": 104.53
  },
  {
   "text": "I've been all around the globe",
   "estimated": false,
-  "start": 104.94,
-  "end": 109.06,
+  "start": 104.771,
+  "end": 109.019,
   "words": [
    {
     "w": "I've",
-    "start": 104.94,
-    "end": 106.28,
-    "matched": true
+    "start": 104.771,
+    "end": 104.951,
+    "matched": true,
+    "whisper_start": 104.94,
+    "score": 0.336
    },
    {
     "w": "been",
-    "start": 106.28,
-    "end": 106.62,
-    "matched": true
+    "start": 106.254,
+    "end": 106.595,
+    "matched": true,
+    "whisper_start": 106.28,
+    "score": 0.586
    },
    {
     "w": "all",
-    "start": 106.62,
-    "end": 107.32,
-    "matched": true
+    "start": 106.995,
+    "end": 107.356,
+    "matched": true,
+    "whisper_start": 106.62,
+    "score": 0.609
    },
    {
     "w": "around",
-    "start": 107.32,
-    "end": 108.08,
-    "matched": true
+    "start": 107.436,
+    "end": 108.258,
+    "matched": true,
+    "whisper_start": 107.32,
+    "score": 0.413
    },
    {
     "w": "the",
-    "start": 108.08,
-    "end": 108.5,
-    "matched": true
+    "start": 108.338,
+    "end": 108.438,
+    "matched": true,
+    "whisper_start": 108.08,
+    "score": 0.101
    },
    {
     "w": "globe",
-    "start": 108.5,
-    "end": 109.06,
-    "matched": true
+    "start": 108.558,
+    "end": 109.019,
+    "matched": true,
+    "whisper_start": 108.5,
+    "score": 0.334
    }
-  ]
+  ],
+  "whisper_start": 104.94,
+  "whisper_end": 109.06
  },
  {
   "text": "Trying to protect your soul",
   "estimated": false,
-  "start": 109.06,
-  "end": 112.5,
+  "start": 109.463,
+  "end": 112.438,
   "words": [
    {
     "w": "Trying",
-    "start": 109.06,
-    "end": 109.76,
-    "matched": true
+    "start": 109.463,
+    "end": 110.127,
+    "matched": true,
+    "whisper_start": 109.06,
+    "score": 0.21
    },
    {
     "w": "to",
-    "start": 109.76,
-    "end": 110.34,
-    "matched": true
+    "start": 110.207,
+    "end": 110.328,
+    "matched": true,
+    "whisper_start": 109.76,
+    "score": 0.073
    },
    {
     "w": "protect",
-    "start": 110.34,
-    "end": 110.84,
-    "matched": true
+    "start": 110.428,
+    "end": 110.971,
+    "matched": true,
+    "whisper_start": 110.34,
+    "score": 0.241
    },
    {
     "w": "your",
-    "start": 110.84,
-    "end": 111.62,
-    "matched": true
+    "start": 111.393,
+    "end": 111.614,
+    "matched": true,
+    "whisper_start": 110.84,
+    "score": 0.551
    },
    {
     "w": "soul",
-    "start": 111.62,
-    "end": 112.5,
-    "matched": true
+    "start": 112.076,
+    "end": 112.438,
+    "matched": true,
+    "whisper_start": 111.62,
+    "score": 0.476
    }
-  ]
+  ],
+  "whisper_start": 109.06,
+  "whisper_end": 112.5
  },
  {
   "text": "We are heroes tonight",
   "estimated": false,
-  "start": 112.5,
-  "end": 116.24,
+  "start": 113.506,
+  "end": 116.5,
   "words": [
    {
     "w": "We",
-    "start": 112.5,
-    "end": 113.68,
-    "matched": true
+    "start": 113.506,
+    "end": 113.627,
+    "matched": true,
+    "whisper_start": 112.5,
+    "score": 0.179
    },
    {
     "w": "are",
-    "start": 113.68,
-    "end": 114.18,
-    "matched": true
+    "start": 113.848,
+    "end": 114.611,
+    "matched": true,
+    "whisper_start": 113.68,
+    "score": 0.253
    },
    {
     "w": "heroes",
-    "start": 114.18,
-    "end": 115.42,
-    "matched": true
+    "start": 114.812,
+    "end": 115.897,
+    "matched": true,
+    "whisper_start": 114.18,
+    "score": 0.194
    },
    {
     "w": "tonight",
-    "start": 115.42,
-    "end": 116.24,
-    "matched": true
+    "start": 115.917,
+    "end": 116.5,
+    "matched": true,
+    "whisper_start": 115.42,
+    "score": 0.12
    }
-  ]
+  ],
+  "whisper_start": 112.5,
+  "whisper_end": 116.24
  },
  {
   "text": "We will fly above the sky",
   "estimated": false,
-  "start": 116.24,
-  "end": 120.2,
+  "start": 117.266,
+  "end": 119.917,
   "words": [
    {
     "w": "We",
-    "start": 116.24,
-    "end": 117.42,
-    "matched": true
+    "start": 117.266,
+    "end": 117.386,
+    "matched": true,
+    "whisper_start": 116.24,
+    "score": 0.341
    },
    {
     "w": "will",
-    "start": 117.42,
-    "end": 117.76,
-    "matched": true
+    "start": 117.547,
+    "end": 117.808,
+    "matched": true,
+    "whisper_start": 117.42,
+    "score": 0.088
    },
    {
     "w": "fly",
-    "start": 117.76,
-    "end": 118.34,
-    "matched": true
+    "start": 117.949,
+    "end": 118.391,
+    "matched": true,
+    "whisper_start": 117.76,
+    "score": 0.109
    },
    {
     "w": "above",
-    "start": 118.34,
-    "end": 119.0,
-    "matched": true
+    "start": 118.491,
+    "end": 119.375,
+    "matched": true,
+    "whisper_start": 118.34,
+    "score": 0.245
    },
    {
     "w": "the",
-    "start": 119.0,
-    "end": 119.62,
-    "matched": true
+    "start": 119.395,
+    "end": 119.496,
+    "matched": true,
+    "whisper_start": 119.0,
+    "score": 0.231
    },
    {
     "w": "sky",
-    "start": 119.62,
-    "end": 120.2,
-    "matched": true
+    "start": 119.817,
+    "end": 119.917,
+    "matched": true,
+    "whisper_start": 119.62,
+    "score": 0.229
    }
-  ]
+  ],
+  "whisper_start": 116.24,
+  "whisper_end": 120.2
  },
  {
   "text": "We are heroes tonight, yeah",
   "estimated": false,
-  "start": 120.2,
-  "end": 124.57,
+  "start": 121.022,
+  "end": 124.528,
   "words": [
    {
     "w": "We",
-    "start": 120.2,
-    "end": 121.18,
-    "matched": true
+    "start": 121.022,
+    "end": 121.142,
+    "matched": true,
+    "whisper_start": 120.2,
+    "score": 0.105
    },
    {
     "w": "are",
-    "start": 121.18,
-    "end": 121.66,
-    "matched": true
+    "start": 121.322,
+    "end": 122.044,
+    "matched": true,
+    "whisper_start": 121.18,
+    "score": 0.165
    },
    {
     "w": "heroes",
-    "start": 121.66,
-    "end": 123.1,
-    "matched": true
+    "start": 122.364,
+    "end": 123.306,
+    "matched": true,
+    "whisper_start": 121.66,
+    "score": 0.16
    },
    {
     "w": "tonight,",
-    "start": 123.1,
-    "end": 124.32,
-    "matched": true
+    "start": 123.346,
+    "end": 124.308,
+    "matched": true,
+    "whisper_start": 123.1,
+    "score": 0.042
    },
    {
     "w": "yeah",
-    "start": 124.32,
-    "end": 124.57,
-    "matched": false
+    "start": 124.308,
+    "end": 124.528,
+    "matched": false,
+    "whisper_start": 124.32,
+    "score": 0.221
    }
-  ]
+  ],
+  "whisper_start": 120.2,
+  "whisper_end": 124.57
  },
  {
   "text": "We are heroes tonight",
   "estimated": false,
-  "start": 126.36,
-  "end": 131.14,
+  "start": 128.49,
+  "end": 131.819,
   "words": [
    {
     "w": "We",
-    "start": 126.36,
-    "end": 127.76,
-    "matched": true
+    "start": 128.49,
+    "end": 128.61,
+    "matched": true,
+    "whisper_start": 126.36,
+    "score": 0.294
    },
    {
     "w": "are",
-    "start": 127.76,
-    "end": 129.16,
-    "matched": true
+    "start": 128.831,
+    "end": 129.613,
+    "matched": true,
+    "whisper_start": 127.76,
+    "score": 0.34
    },
    {
     "w": "heroes",
-    "start": 129.16,
-    "end": 130.36,
-    "matched": true
+    "start": 129.814,
+    "end": 130.877,
+    "matched": true,
+    "whisper_start": 129.16,
+    "score": 0.218
    },
    {
     "w": "tonight",
-    "start": 130.36,
-    "end": 131.14,
-    "matched": true
+    "start": 130.897,
+    "end": 131.819,
+    "matched": true,
+    "whisper_start": 130.36,
+    "score": 0.169
    }
-  ]
+  ],
+  "whisper_start": 126.36,
+  "whisper_end": 131.14
  },
  {
   "text": "We will fly above the sky",
   "estimated": false,
-  "start": 131.7,
-  "end": 135.2,
+  "start": 132.286,
+  "end": 134.897,
   "words": [
    {
     "w": "We",
-    "start": 131.7,
-    "end": 132.4,
-    "matched": true
+    "start": 132.286,
+    "end": 132.387,
+    "matched": true,
+    "whisper_start": 131.7,
+    "score": 0.385
    },
    {
     "w": "will",
-    "start": 132.4,
-    "end": 132.78,
-    "matched": true
+    "start": 132.527,
+    "end": 132.788,
+    "matched": true,
+    "whisper_start": 132.4,
+    "score": 0.146
    },
    {
     "w": "fly",
-    "start": 132.78,
-    "end": 133.3,
-    "matched": true
+    "start": 132.909,
+    "end": 133.391,
+    "matched": true,
+    "whisper_start": 132.78,
+    "score": 0.31
    },
    {
     "w": "above",
-    "start": 133.3,
-    "end": 133.96,
-    "matched": true
+    "start": 133.451,
+    "end": 134.496,
+    "matched": true,
+    "whisper_start": 133.3,
+    "score": 0.402
    },
    {
     "w": "the",
-    "start": 133.96,
-    "end": 134.6,
-    "matched": true
+    "start": 134.636,
+    "end": 134.697,
+    "matched": true,
+    "whisper_start": 133.96,
+    "score": 0.049
    },
    {
     "w": "sky",
-    "start": 134.6,
-    "end": 135.2,
-    "matched": true
+    "start": 134.817,
+    "end": 134.897,
+    "matched": true,
+    "whisper_start": 134.6,
+    "score": 0.348
    }
-  ]
+  ],
+  "whisper_start": 131.7,
+  "whisper_end": 135.2
  },
  {
   "text": "We are heroes tonight, yeah",
   "estimated": false,
-  "start": 135.2,
-  "end": 142.36,
+  "start": 135.983,
+  "end": 142.64,
   "words": [
    {
     "w": "We",
-    "start": 135.2,
-    "end": 136.16,
-    "matched": true
+    "start": 135.983,
+    "end": 136.103,
+    "matched": true,
+    "whisper_start": 135.2,
+    "score": 0.36
    },
    {
     "w": "are",
-    "start": 136.16,
-    "end": 136.72,
-    "matched": true
+    "start": 136.344,
+    "end": 137.025,
+    "matched": true,
+    "whisper_start": 136.16,
+    "score": 0.27
    },
    {
     "w": "heroes",
-    "start": 136.72,
-    "end": 137.82,
-    "matched": true
+    "start": 137.346,
+    "end": 138.289,
+    "matched": true,
+    "whisper_start": 136.72,
+    "score": 0.24
    },
    {
     "w": "tonight,",
-    "start": 137.82,
-    "end": 139.42,
-    "matched": true
+    "start": 138.349,
+    "end": 142.079,
+    "matched": true,
+    "whisper_start": 137.82,
+    "score": 0.167
    },
    {
     "w": "yeah",
-    "start": 140.58,
-    "end": 142.36,
-    "matched": true
+    "start": 142.079,
+    "end": 142.64,
+    "matched": true,
+    "whisper_start": 140.58,
+    "score": 0.103
    }
-  ]
+  ],
+  "whisper_start": 135.2,
+  "whisper_end": 142.36
  },
  {
   "text": "We are heroes tonight, yeah",
   "estimated": false,
-  "start": 142.36,
-  "end": 157.48,
+  "start": 146.285,
+  "end": 151.912,
   "words": [
    {
     "w": "We",
-    "start": 142.36,
-    "end": 143.72,
-    "matched": true
+    "start": 146.285,
+    "end": 146.425,
+    "matched": true,
+    "whisper_start": 142.36,
+    "score": 0.007
    },
    {
     "w": "are",
-    "start": 143.72,
-    "end": 151.64,
-    "matched": true
+    "start": 146.425,
+    "end": 148.608,
+    "matched": true,
+    "whisper_start": 143.72,
+    "score": 0.051
    },
    {
     "w": "heroes",
-    "start": 151.64,
-    "end": 152.6,
-    "matched": true
+    "start": 148.728,
+    "end": 149.709,
+    "matched": true,
+    "whisper_start": 151.64,
+    "score": 0.046
    },
    {
     "w": "tonight,",
-    "start": 152.6,
-    "end": 154.5,
-    "matched": true
+    "start": 149.929,
+    "end": 151.031,
+    "matched": true,
+    "whisper_start": 152.6,
+    "score": 0.1
    },
    {
     "w": "yeah",
-    "start": 154.54,
-    "end": 157.48,
-    "matched": true
+    "start": 151.071,
+    "end": 151.912,
+    "matched": true,
+    "whisper_start": 154.54,
+    "score": 0.147
    }
-  ]
+  ],
+  "whisper_start": 142.36,
+  "whisper_end": 157.48
  },
  {
   "text": "Night, yeah",
   "estimated": false,
-  "start": 169.6,
-  "end": 172.4,
+  "start": 169.284,
+  "end": 171.171,
   "words": [
    {
     "w": "Night,",
-    "start": 169.6,
-    "end": 171.0,
-    "matched": true
+    "start": 169.284,
+    "end": 170.007,
+    "matched": true,
+    "whisper_start": 169.6,
+    "score": 0.138
    },
    {
     "w": "yeah",
-    "start": 171.0,
-    "end": 172.4,
-    "matched": true
+    "start": 170.007,
+    "end": 171.171,
+    "matched": true,
+    "whisper_start": 171.0,
+    "score": 0.039
    }
-  ]
+  ],
+  "whisper_start": 169.6,
+  "whisper_end": 172.4
  },
  {
   "text": "We are heroes tonight",
   "estimated": false,
-  "start": 172.96,
-  "end": 176.36,
+  "start": 173.727,
+  "end": 176.178,
   "words": [
    {
     "w": "We",
-    "start": 172.96,
-    "end": 173.66,
-    "matched": true
+    "start": 173.727,
+    "end": 173.848,
+    "matched": true,
+    "whisper_start": 172.96,
+    "score": 0.022
    },
    {
     "w": "are",
-    "start": 173.66,
-    "end": 174.04,
-    "matched": true
+    "start": 173.948,
+    "end": 174.169,
+    "matched": true,
+    "whisper_start": 173.66,
+    "score": 0.233
    },
    {
     "w": "heroes",
-    "start": 174.04,
-    "end": 175.16,
-    "matched": true
+    "start": 174.41,
+    "end": 175.877,
+    "matched": true,
+    "whisper_start": 174.04,
+    "score": 0.142
    },
    {
     "w": "tonight",
-    "start": 175.16,
-    "end": 176.36,
-    "matched": true
+    "start": 175.937,
+    "end": 176.178,
+    "matched": true,
+    "whisper_start": 175.16,
+    "score": 0.069
    }
-  ]
+  ],
+  "whisper_start": 172.96,
+  "whisper_end": 176.36
  },
  {
   "text": "We will fly above the sky",
   "estimated": false,
-  "start": 176.36,
-  "end": 180.3,
+  "start": 177.265,
+  "end": 180.299,
   "words": [
    {
     "w": "We",
-    "start": 176.36,
-    "end": 177.4,
-    "matched": true
+    "start": 177.265,
+    "end": 177.386,
+    "matched": true,
+    "whisper_start": 176.36,
+    "score": 0.299
    },
    {
     "w": "will",
-    "start": 177.4,
-    "end": 177.82,
-    "matched": true
+    "start": 177.506,
+    "end": 177.788,
+    "matched": true,
+    "whisper_start": 177.4,
+    "score": 0.207
    },
    {
     "w": "fly",
-    "start": 177.82,
-    "end": 178.28,
-    "matched": true
+    "start": 177.928,
+    "end": 178.39,
+    "matched": true,
+    "whisper_start": 177.82,
+    "score": 0.095
    },
    {
     "w": "above",
-    "start": 178.28,
-    "end": 178.98,
-    "matched": true
+    "start": 178.471,
+    "end": 179.475,
+    "matched": true,
+    "whisper_start": 178.28,
+    "score": 0.188
    },
    {
     "w": "the",
-    "start": 178.98,
-    "end": 179.64,
-    "matched": true
+    "start": 179.656,
+    "end": 179.716,
+    "matched": true,
+    "whisper_start": 178.98,
+    "score": 0.045
    },
    {
     "w": "sky",
-    "start": 179.64,
-    "end": 180.3,
-    "matched": true
+    "start": 179.796,
+    "end": 180.299,
+    "matched": true,
+    "whisper_start": 179.64,
+    "score": 0.326
    }
-  ]
+  ],
+  "whisper_start": 176.36,
+  "whisper_end": 180.3
  },
  {
   "text": "We are heroes tonight, yeah",
   "estimated": false,
-  "start": 180.3,
-  "end": 187.28,
+  "start": 180.982,
+  "end": 188.099,
   "words": [
    {
     "w": "We",
-    "start": 180.3,
-    "end": 181.16,
-    "matched": true
+    "start": 180.982,
+    "end": 181.103,
+    "matched": true,
+    "whisper_start": 180.3,
+    "score": 0.083
    },
    {
     "w": "are",
-    "start": 181.16,
-    "end": 181.52,
-    "matched": true
+    "start": 181.343,
+    "end": 182.045,
+    "matched": true,
+    "whisper_start": 181.16,
+    "score": 0.264
    },
    {
     "w": "heroes",
-    "start": 181.52,
-    "end": 182.66,
-    "matched": true
+    "start": 182.386,
+    "end": 183.288,
+    "matched": true,
+    "whisper_start": 181.52,
+    "score": 0.198
    },
    {
     "w": "tonight,",
-    "start": 182.66,
-    "end": 183.94,
-    "matched": true
+    "start": 183.348,
+    "end": 184.631,
+    "matched": true,
+    "whisper_start": 182.66,
+    "score": 0.068
    },
    {
     "w": "yeah",
-    "start": 185.92,
-    "end": 187.28,
-    "matched": true
+    "start": 187.077,
+    "end": 188.099,
+    "matched": true,
+    "whisper_start": 185.92,
+    "score": 0.174
    }
-  ]
+  ],
+  "whisper_start": 180.3,
+  "whisper_end": 187.28
  },
  {
   "text": "I've been flying from town to town",
   "estimated": false,
-  "start": 188.46,
-  "end": 191.48,
+  "start": 188.747,
+  "end": 191.539,
   "words": [
    {
     "w": "I've",
-    "start": 188.46,
-    "end": 189.0,
-    "matched": true
+    "start": 188.747,
+    "end": 188.887,
+    "matched": true,
+    "whisper_start": 188.46,
+    "score": 0.014
    },
    {
     "w": "been",
-    "start": 189.0,
-    "end": 189.24,
-    "matched": true
+    "start": 188.947,
+    "end": 189.229,
+    "matched": true,
+    "whisper_start": 189.0,
+    "score": 0.381
    },
    {
     "w": "flying",
-    "start": 189.24,
-    "end": 189.82,
-    "matched": true
+    "start": 189.369,
+    "end": 189.992,
+    "matched": true,
+    "whisper_start": 189.24,
+    "score": 0.479
    },
    {
     "w": "from",
-    "start": 190.03,
-    "end": 190.28,
-    "matched": false
+    "start": 190.072,
+    "end": 190.273,
+    "matched": false,
+    "whisper_start": 190.03,
+    "score": 0.984
    },
    {
     "w": "town",
-    "start": 190.24,
-    "end": 190.68,
-    "matched": true
+    "start": 190.394,
+    "end": 190.755,
+    "matched": true,
+    "whisper_start": 190.24,
+    "score": 0.635
    },
    {
     "w": "to",
-    "start": 190.68,
-    "end": 191.0,
-    "matched": true
+    "start": 190.796,
+    "end": 190.936,
+    "matched": true,
+    "whisper_start": 190.68,
+    "score": 0.14
    },
    {
     "w": "town",
-    "start": 191.0,
-    "end": 191.48,
-    "matched": true
+    "start": 191.037,
+    "end": 191.539,
+    "matched": true,
+    "whisper_start": 191.0,
+    "score": 0.737
    }
-  ]
+  ],
+  "whisper_start": 188.46,
+  "whisper_end": 191.48
  },
  {
   "text": "From London to Taiwan",
   "estimated": false,
-  "start": 191.48,
-  "end": 194.92,
+  "start": 192.205,
+  "end": 195.12,
   "words": [
    {
     "w": "From",
-    "start": 191.48,
-    "end": 192.66,
-    "matched": true
+    "start": 192.205,
+    "end": 192.909,
+    "matched": true,
+    "whisper_start": 191.48,
+    "score": 0.573
    },
    {
     "w": "London",
-    "start": 192.66,
-    "end": 193.64,
-    "matched": true
+    "start": 193.13,
+    "end": 193.793,
+    "matched": true,
+    "whisper_start": 192.66,
+    "score": 0.414
    },
    {
     "w": "to",
-    "start": 193.64,
-    "end": 194.24,
-    "matched": true
+    "start": 193.893,
+    "end": 194.034,
+    "matched": true,
+    "whisper_start": 193.64,
+    "score": 0.049
    },
    {
     "w": "Taiwan",
-    "start": 194.24,
-    "end": 194.92,
-    "matched": true
+    "start": 194.557,
+    "end": 195.12,
+    "matched": true,
+    "whisper_start": 194.24,
+    "score": 0.541
    }
-  ]
+  ],
+  "whisper_start": 191.48,
+  "whisper_end": 194.92
  },
  {
   "text": "I've been all around the globe",
   "estimated": false,
-  "start": 194.92,
-  "end": 198.9,
+  "start": 194.781,
+  "end": 199.18,
   "words": [
    {
     "w": "I've",
-    "start": 194.92,
-    "end": 196.32,
-    "matched": true
+    "start": 194.781,
+    "end": 196.046,
+    "matched": true,
+    "whisper_start": 194.92,
+    "score": 0.003
    },
    {
     "w": "been",
-    "start": 196.32,
-    "end": 196.66,
-    "matched": true
+    "start": 196.247,
+    "end": 196.609,
+    "matched": true,
+    "whisper_start": 196.32,
+    "score": 0.629
    },
    {
     "w": "all",
-    "start": 196.66,
-    "end": 197.36,
-    "matched": true
+    "start": 197.01,
+    "end": 197.372,
+    "matched": true,
+    "whisper_start": 196.66,
+    "score": 0.408
    },
    {
     "w": "around",
-    "start": 197.36,
-    "end": 198.06,
-    "matched": true
+    "start": 197.432,
+    "end": 198.256,
+    "matched": true,
+    "whisper_start": 197.36,
+    "score": 0.458
    },
    {
     "w": "the",
-    "start": 198.06,
-    "end": 198.46,
-    "matched": true
+    "start": 198.356,
+    "end": 198.437,
+    "matched": true,
+    "whisper_start": 198.06,
+    "score": 0.132
    },
    {
     "w": "globe",
-    "start": 198.46,
-    "end": 198.9,
-    "matched": true
+    "start": 198.537,
+    "end": 199.18,
+    "matched": true,
+    "whisper_start": 198.46,
+    "score": 0.422
    }
-  ]
+  ],
+  "whisper_start": 194.92,
+  "whisper_end": 198.9
  },
  {
   "text": "Trying to protect your soul",
   "estimated": false,
-  "start": 198.9,
-  "end": 202.46,
+  "start": 199.443,
+  "end": 202.515,
   "words": [
    {
     "w": "Trying",
-    "start": 198.9,
-    "end": 199.72,
-    "matched": true
+    "start": 199.443,
+    "end": 200.126,
+    "matched": true,
+    "whisper_start": 198.9,
+    "score": 0.304
    },
    {
     "w": "to",
-    "start": 199.72,
-    "end": 200.34,
-    "matched": true
+    "start": 200.206,
+    "end": 200.327,
+    "matched": true,
+    "whisper_start": 199.72,
+    "score": 0.18
    },
    {
     "w": "protect",
-    "start": 200.34,
-    "end": 200.88,
-    "matched": true
+    "start": 200.427,
+    "end": 200.969,
+    "matched": true,
+    "whisper_start": 200.34,
+    "score": 0.213
    },
    {
     "w": "your",
-    "start": 200.88,
-    "end": 201.64,
-    "matched": true
+    "start": 201.391,
+    "end": 201.632,
+    "matched": true,
+    "whisper_start": 200.88,
+    "score": 0.482
    },
    {
     "w": "soul",
-    "start": 201.64,
-    "end": 202.46,
-    "matched": true
+    "start": 202.074,
+    "end": 202.515,
+    "matched": true,
+    "whisper_start": 201.64,
+    "score": 0.528
    }
-  ]
+  ],
+  "whisper_start": 198.9,
+  "whisper_end": 202.46
  }
 ]
