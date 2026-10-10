@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "bun --bun vite",
     "soundtrack": "bun scripts/soundtrack.ts",
     "stills": "bun scripts/render.ts stills",
     "render": "bun scripts/render.ts video",

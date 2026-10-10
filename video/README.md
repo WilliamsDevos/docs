@@ -89,7 +89,7 @@ y guárdalo como `public/audio/heroes-tonight.mp3`. Música: *Janji – Heroes T
 cd video
 bun install
 bun run soundtrack            # genera public/soundtrack.wav
-bunx vite                     # vista previa en http://localhost:5173
+bun run dev                   # vista previa en http://localhost:5173
 ```
 
 Para otro proyecto añade `?project=heroes-tonight` a la URL de la vista previa, o
@@ -102,7 +102,8 @@ En la vista previa: **espacio** reproduce o pausa, **←/→** salta ±1 s (±5 
 ### Renderizar en Windows con GPU AMD
 
 Todo el análisis (tempo, golpes, voz, letra alineada) ya está en el repositorio, en
-`src/songs/heroes-tonight/`. Para renderizar no hace falta Python.
+`src/songs/heroes-tonight/`. Para renderizar no hace falta Python ni Node.js: todo corre con Bun
+(incluido el servidor de Vite, que el script arranca dentro de su propio proceso).
 
 1. **Herramientas** (PowerShell; después abre una terminal nueva para que se actualice el `PATH`):
    ```powershell
@@ -159,7 +160,7 @@ bun run render:heroes:amd-blur     # con desenfoque de movimiento (4 sub-fotogra
 bun run render:heroes:amd -- --qp 22   # archivo más ligero (qp más alto = menos calidad)
 ```
 
-Vista previa en el navegador antes de renderizar: `bunx vite` y abre
+Vista previa en el navegador antes de renderizar: `bun run dev` y abre
 `http://localhost:5173/?project=heroes-tonight` (barra espaciadora para reproducir con audio).
 
 Para compartir, el grano de película hace que el archivo pese mucho. Recomprímelo así:

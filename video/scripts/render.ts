@@ -44,20 +44,20 @@ async function reachable(url: string) {
 
 async function startServer() {
   const given = opt('url');
-  if (given && (await reachable(given))) return {url: given, stop: () => {}};
+  if (given && (await reachable(given))) return {url: given, stop: async () => {}};
+  // Vite arranca dentro de este mismo proceso de Bun: así no depende del Node.js que haya instalado
+  // (con un Node antiguo, "bunx vite" fallaba). Sin recarga en caliente: un archivo guardado no
+  // debe recargar la página a mitad de render.
+  const {createServer} = await import('vite');
   const port = 5400 + Math.floor(Math.random() * 400);
-  // process.execPath es el propio bun: funciona igual en Windows, Mac y Linux (sin depender de "bunx" en el PATH).
-  const proc = Bun.spawn([process.execPath, 'x', 'vite', '--port', String(port), '--strictPort'], {
-    cwd: APP,
-    stdout: 'ignore',
-    stderr: 'inherit',
-    env: {...process.env, VIDEO_NO_HMR: '1'},
+  const server = await createServer({
+    root: APP,
+    configFile: path.join(APP, 'vite.config.ts'),
+    logLevel: 'warn',
+    server: {port, strictPort: true, hmr: false},
   });
-  const url = `http://localhost:${port}`;
-  // La primera vez Vite optimiza dependencias y puede tardar: hasta 60 s.
-  for (let i = 0; i < 600 && !(await reachable(url)); i++) await Bun.sleep(100);
-  if (!(await reachable(url))) throw new Error(`Vite no arrancó en ${url}`);
-  return {url, stop: () => proc.kill()};
+  await server.listen();
+  return {url: `http://localhost:${port}`, stop: () => server.close()};
 }
 
 async function launch(): Promise<Browser> {
@@ -265,5 +265,5 @@ try {
   else throw new Error(`modo desconocido: ${mode}`);
 } finally {
   await browser?.close();
-  server.stop();
+  await server.stop();
 }
